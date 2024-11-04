@@ -1,0 +1,77 @@
+C51 COMPILER V9.52.0.0   TIMER                                                             09/24/2021 14:48:19 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN ..\OBJ\Timer.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\Timer.c OPTIMIZE(0,SPEED) BROWSE INCDIR(..\USER) DEBUG OBJECTEX
+                    -TEND PRINT(..\LIST\Timer.lst) TABS(2) OBJECT(..\OBJ\Timer.obj)
+
+line level    source
+
+   1          #include "Buzzer.H"////包含头文件，定时器有关
+   2          
+   3          volatile bit Flag_1ms = 0,Flag_10ms = 0 ;//定义1个全局变量，每隔相应的定时到达时，设为1！表示时间到了
+   4          
+   5          void Timer0Init(void)   //1毫秒@11.0592MHz
+   6          {
+   7   1        AUXR &= 0x7F;   //定时器时钟12T模式
+   8   1        TMOD &= 0xF0;   //设置定时器模式
+   9   1        TL0 = 0x66;   //设置定时初值
+  10   1        TH0 = 0xFC;   //设置定时初值
+  11   1        TF0 = 0;    //清除TF0标志
+  12   1        TR0 = 1;    //定时器0开始计时
+  13   1      
+  14   1              ET0 = 1;//  开启T0中断 
+  15   1            EA = 1 ;//  开启总中断
+  16   1      
+  17   1      }
+  18          
+  19          
+  20          void T0_ISR(void) interrupt 1
+  21          {
+  22   1         Flag_1ms = 1;
+  23   1      }
+  24          
+  25          
+  26          
+  27          
+  28          
+  29          void Timer1Init(void)   //010毫秒@11.0592MHz
+  30          {
+  31   1        AUXR &= 0xBF;   //定时器时钟12T模式
+  32   1        TMOD &= 0x0F;   //设置定时器模式
+  33   1        TL1 = 0x00;   //设置定时初值
+  34   1        TH1 = 0xDC;   //设置定时初值
+  35   1        TF1 = 0;    //清除TF1标志
+  36   1        TR1 = 1;    //定时器1开始计时
+  37   1      
+  38   1             ET1 = 1;//  开启T1中断 
+  39   1            EA = 1 ;//  开启总中断
+  40   1      }
+  41          
+  42          
+  43          void T1_ISR(void) interrupt 3
+  44          {
+  45   1         Flag_10ms = 1;
+  46   1      }
+  47          
+  48          
+  49          
+  50          
+  51          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.52.0.0   TIMER                                                             09/24/2021 14:48:19 PAGE 2   
+
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

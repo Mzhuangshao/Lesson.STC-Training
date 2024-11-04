@@ -1,0 +1,279 @@
+C51 COMPILER V9.52.0.0   BITMAP                                                            09/23/2021 11:21:26 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BITMAP
+OBJECT MODULE PLACED IN .\obj\BitMap.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\BitMap.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\Bit
+                    -Map.lst) TABS(2) OBJECT(.\obj\BitMap.obj)
+
+line level    source
+
+   1          #include "BitMap.h"
+   2          
+   3          static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//空心
+   4          static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//实心
+   5          
+   6          volatile unsigned int BitMapTab[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
+   7          
+   8          void BitMap_Display()   
+   9          {
+  10   1        static unsigned char accept_count = 0;
+  11   1        BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+  12   1        accept_count++;
+  13   1        if(accept_count > 8)
+  14   1        {
+  15   2          accept_count = 1;
+  16   2        }
+  17   1        P2 = BitMapTab[accept_count - 1];
+  18   1        switch(accept_count)
+  19   1        {
+  20   2          case 1:BitMap1 = 1;break;
+  21   2          case 2:BitMap2 = 1;break;
+  22   2          case 3:BitMap3 = 1;break;
+  23   2          case 4:BitMap4 = 1;break;
+  24   2          case 5:BitMap5 = 1;break;
+  25   2          case 6:BitMap6 = 1;break;
+  26   2          case 7:BitMap7 = 1;break;
+  27   2          case 8:BitMap8 = 1;break;
+  28   2          default:break;
+  29   2        }
+  30   1      }
+  31          
+  32          void BitMap_Init()  //推挽输出
+  33          {
+  34   1        P2M1 &= 0x00;
+  35   1        P2M0 |= 0xff;
+  36   1        
+  37   1        P3M1 &= 0xfb;
+  38   1        P3M0 |= 0x04;
+  39   1        
+  40   1        P4M1 &= 0xfd;
+  41   1        P4M0 |= 0x02;
+  42   1        
+  43   1        P3M1 &= 0xf7;
+  44   1        P3M0 |= 0x08;
+  45   1        
+  46   1        P3M1 &= 0xbf;
+  47   1        P3M0 |= 0x40;
+  48   1        
+  49   1        P4M1 &= 0xef;
+  50   1        P4M0 |= 0x10;
+  51   1        
+  52   1        P3M1 &= 0xef;
+  53   1        P3M0 |= 0x10;
+  54   1        
+C51 COMPILER V9.52.0.0   BITMAP                                                            09/23/2021 11:21:26 PAGE 2   
+
+  55   1        P4M1 &= 0xfb;
+  56   1        P4M0 |= 0x04;
+  57   1        
+  58   1        P3M1 &= 0xdf;
+  59   1        P3M0 |= 0x20;
+  60   1        
+  61   1        P2 = 0x00;
+  62   1        BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+  63   1      }
+  64          
+  65          void BitMap()
+  66          {
+  67   1        static unsigned int trigger_BM = 0;
+  68   1               unsigned char i ;
+  69   1        static bit trigger_heart = 0;
+  70   1          trigger_BM++;
+  71   1      if(trigger_BM >= 1000)
+  72   1      {
+  73   2        trigger_BM = 0;
+  74   2        trigger_heart = !trigger_heart;
+  75   2      }
+  76   1        if(trigger_heart)                   //触发器检测
+  77   1        {
+  78   2          for(i=0;i<8;i++)                  //空心
+  79   2          {
+  80   3          BitMapTab[i] = ~Heart0[i] ;
+  81   3          }
+  82   2        }
+  83   1        else
+  84   1        {
+  85   2          for(i=0;i<8;i++)                  //实心
+  86   2          {
+  87   3          BitMapTab[i] = ~Heart1[i] ;
+  88   3          }
+  89   2        }
+  90   1      }
+  91          /*    OLD FUNCTION
+  92          void BitMap()
+  93          {
+  94            static unsigned int T1Count = 0;
+  95            static unsigned char Count = 0;
+  96            T1Count ++;
+  97            if (T1Count >= 100)
+  98            {
+  99              T1Count = 0;
+ 100              Count ++;
+ 101            }
+ 102            if(Count == 0)
+ 103            {
+ 104              P2 = ~FontTab0[0];
+ 105              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 106            }
+ 107            if(Count == 1)
+ 108            {
+ 109              P2 = ~FontTab0[0];
+ 110              BitMap1 = 0;BitMap2 = 1;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 111            }
+ 112            if(Count == 2)
+ 113            {
+ 114              P2 = ~FontTab0[0];
+ 115              BitMap1 = 0;BitMap2 = 0;BitMap3 = 1;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 116            }
+C51 COMPILER V9.52.0.0   BITMAP                                                            09/23/2021 11:21:26 PAGE 3   
+
+ 117            if(Count == 3)
+ 118            {
+ 119              P2 = ~FontTab0[0];
+ 120              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 1;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 121            }
+ 122            if(Count == 4)
+ 123            {
+ 124              P2 = ~FontTab0[0];
+ 125              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 1;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 126            }
+ 127            if(Count == 5)
+ 128            {
+ 129              P2 = ~FontTab0[0];
+ 130              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 1;BitMap7 = 0;BitMap8 = 0;
+ 131            }
+ 132            if(Count == 6)
+ 133            {
+ 134              P2 = ~FontTab0[0];
+ 135              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 1;BitMap8 = 0;
+ 136            }
+ 137            if(Count == 7)
+ 138            {
+ 139              P2 = ~FontTab0[0];
+ 140              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 141            }
+ 142            if(Count == 8)
+ 143            {
+ 144              P2 = ~FontTab0[1];
+ 145              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 146            }
+ 147            if(Count == 9)
+ 148            {
+ 149              P2 = ~FontTab0[2];
+ 150              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 151            }
+ 152            if(Count == 10)
+ 153            {
+ 154              P2 = ~FontTab0[3];
+ 155              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 156            }
+ 157            if(Count == 11)
+ 158            {
+ 159              P2 = ~FontTab0[4];
+ 160              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 161            }
+ 162            if(Count == 12)
+ 163            {
+ 164              P2 = ~FontTab0[5];
+ 165              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 166            }
+ 167            if(Count == 13)
+ 168            {
+ 169              P2 = ~FontTab0[6];
+ 170              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 171            }
+ 172            if(Count == 14)
+ 173            {
+ 174              P2 = ~FontTab0[7];
+ 175              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
+ 176            }
+ 177            if(Count == 15)
+ 178            {
+C51 COMPILER V9.52.0.0   BITMAP                                                            09/23/2021 11:21:26 PAGE 4   
+
+ 179              P2 = ~FontTab0[7];
+ 180              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 1;BitMap8 = 0;
+ 181            }
+ 182            if(Count == 16)
+ 183            {
+ 184              P2 = ~FontTab0[7];
+ 185              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 1;BitMap7 = 0;BitMap8 = 0;
+ 186            }
+ 187            if(Count == 17)
+ 188            {
+ 189              P2 = ~FontTab0[7];
+ 190              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 1;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 191            }
+ 192            if(Count == 18)
+ 193            {
+ 194              P2 = ~FontTab0[7];
+ 195              BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 1;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 196            }
+ 197            if(Count == 19)
+ 198            {
+ 199              P2 = ~FontTab0[7];
+ 200              BitMap1 = 0;BitMap2 = 0;BitMap3 = 1;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 201            }
+ 202            if(Count == 20)
+ 203            {
+ 204              P2 = ~FontTab0[7];
+ 205              BitMap1 = 0;BitMap2 = 1;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 206            }
+ 207            if(Count == 21)
+ 208            {
+ 209              P2 = ~FontTab0[7];
+ 210              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 211            }
+ 212            if(Count == 22)
+ 213            {
+ 214              P2 = ~FontTab0[6];
+ 215              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 216            }
+ 217            if(Count == 23)
+ 218            {
+ 219              P2 = ~FontTab0[5];
+ 220              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 221            }
+ 222            if(Count == 24)
+ 223            {
+ 224              P2 = ~FontTab0[4];
+ 225              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 226            }
+ 227            if(Count == 25)
+ 228            {
+ 229              P2 = ~FontTab0[3];
+ 230              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 231            }
+ 232            if(Count == 26)
+ 233            {
+ 234              P2 = ~FontTab0[2];
+ 235              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 236            }
+ 237            if(Count == 27)
+ 238            {
+ 239              P2 = ~FontTab0[1];
+ 240              BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+C51 COMPILER V9.52.0.0   BITMAP                                                            09/23/2021 11:21:26 PAGE 5   
+
+ 241            }
+ 242            if(Count == 28)
+ 243            {
+ 244            Count = 0;
+ 245            }
+ 246          }*/
+ 247          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    266    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     19    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

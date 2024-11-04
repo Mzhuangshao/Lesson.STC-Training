@@ -1,0 +1,4 @@
+"..\obj\STARTUP.obj",
+"..\obj\main.obj" 
+TO "..\obj\data" 
+PRINT("..\list\data.m51")

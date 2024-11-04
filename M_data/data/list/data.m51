@@ -1,0 +1,283 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/24/2021  08:55:17  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_C51\C51\BIN\BL51.EXE ..\obj\STARTUP.obj, ..\obj\main.obj TO ..\obj\data PRINT (..\list\data.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ..\obj\STARTUP.obj (?C_STARTUP)
+  ..\obj\main.obj (MAIN)
+  C:\KEIL_C51\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  ..\obj\data (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0012H     UNIT         ?DT?MAIN
+                    001AH     0006H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?MAIN
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     006DH     UNIT         ?PR?BITMAP_DISPLAY?MAIN
+            CODE    08F9H     004AH     UNIT         ?PR?BITMAP_INIT?MAIN
+            CODE    0943H     003BH     UNIT         ?PR?BITMAP?MAIN
+            CODE    097EH     001BH     UNIT         ?C_INITSEG
+            CODE    0999H     0019H     UNIT         ?CO?MAIN
+            CODE    09B2H     0011H     UNIT         ?PR?MAIN?MAIN
+            CODE    09C3H     000FH     UNIT         ?PR?BUTTON1?MAIN
+            CODE    09D2H     000DH     UNIT         ?PR?BUTTONCHECK?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   ..\obj\data (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?BITMAP_INIT?MAIN
+  +--> ?PR?BUTTON1?MAIN
+  +--> ?PR?BITMAP?MAIN
+  +--> ?PR?BITMAP_DISPLAY?MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/24/2021  08:55:17  PAGE 2
+
+
+?PR?BUTTON1?MAIN
+  +--> ?PR?BUTTONCHECK?MAIN
+
+?PR?BITMAP?MAIN
+  +--> ?CO?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  ..\obj\data (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0021H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0096H         PUBLIC        P2M0
+  D:0080H         PUBLIC        P0
+  D:00B2H         PUBLIC        P3M0
+  D:0095H         PUBLIC        P2M1
+  D:0090H         PUBLIC        P1
+  C:09D2H         PUBLIC        buttonCheck
+  D:00B4H         PUBLIC        P4M0
+  D:00B1H         PUBLIC        P3M1
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/24/2021  08:55:17  PAGE 3
+
+
+  D:00A0H         PUBLIC        P2
+  D:00B3H         PUBLIC        P4M1
+  D:00B0H         PUBLIC        P3
+  B:00C8H.4       PUBLIC        S1
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:0009H         PUBLIC        KEY1_COUNT
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:09B2H         PUBLIC        main
+  C:09A2H         SYMBOL        Heart0
+  C:09AAH         SYMBOL        Heart1
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:08F9H         PUBLIC        BitMap_Init
+  C:0999H         PUBLIC        tab
+  C:0943H         PUBLIC        BitMap
+  C:09C3H         PUBLIC        button1
+  D:000AH         PUBLIC        BitMapTab
+  B:00B0H.2       PUBLIC        BitMap1
+  B:00C0H.1       PUBLIC        BitMap2
+  B:00B0H.3       PUBLIC        BitMap3
+  B:00B0H.6       PUBLIC        BitMap4
+  B:00C0H.4       PUBLIC        BitMap5
+  B:00B0H.4       PUBLIC        BitMap6
+  B:00C0H.2       PUBLIC        BitMap7
+  B:00B0H.5       PUBLIC        BitMap8
+  D:00D0H         PUBLIC        PSW
+  C:088CH         PUBLIC        BitMap_Display
+  B:0020H.0       PUBLIC        M1
+  -------         PROC          MAIN
+  C:09B2H         LINE#         26
+  C:09B2H         LINE#         27
+  C:09B2H         LINE#         28
+  C:09B5H         LINE#         29
+  C:09B8H         LINE#         30
+  C:09B8H         LINE#         31
+  C:09B8H         LINE#         32
+  C:09BBH         LINE#         33
+  C:09BEH         LINE#         34
+  C:09C1H         LINE#         36
+  -------         ENDPROC       MAIN
+  -------         PROC          BUTTONCHECK
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:09D2H         LINE#         39
+  C:09D2H         LINE#         40
+  C:09D2H         LINE#         42
+  C:09D4H         LINE#         43
+  C:09D4H         LINE#         44
+  C:09DAH         LINE#         45
+  C:09DEH         LINE#         46
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/24/2021  08:55:17  PAGE 4
+
+
+  -------         ENDPROC       BUTTONCHECK
+  -------         PROC          BUTTON1
+  C:09C3H         LINE#         47
+  C:09C3H         LINE#         48
+  C:09C3H         LINE#         49
+  C:09C6H         LINE#         50
+  C:09C6H         LINE#         51
+  C:09C9H         LINE#         52
+  C:09CCH         LINE#         53
+  C:09CCH         LINE#         54
+  C:09CEH         LINE#         55
+  C:09D1H         LINE#         56
+  C:09D1H         LINE#         57
+  C:09D1H         LINE#         58
+  -------         ENDPROC       BUTTON1
+  -------         PROC          BITMAP_DISPLAY
+  -------         DO            
+  D:0008H         SYMBOL        accept_count
+  -------         ENDDO         
+  C:088CH         LINE#         59
+  C:088CH         LINE#         60
+  C:088CH         LINE#         62
+  C:089CH         LINE#         63
+  C:089EH         LINE#         64
+  C:08A5H         LINE#         65
+  C:08A5H         LINE#         66
+  C:08A8H         LINE#         67
+  C:08A8H         LINE#         68
+  C:08B3H         LINE#         69
+  C:08E1H         LINE#         70
+  C:08E1H         LINE#         71
+  C:08E4H         LINE#         72
+  C:08E7H         LINE#         73
+  C:08EAH         LINE#         74
+  C:08EDH         LINE#         75
+  C:08F0H         LINE#         76
+  C:08F3H         LINE#         77
+  C:08F6H         LINE#         78
+  C:08F8H         LINE#         79
+  C:08F8H         LINE#         80
+  C:08F8H         LINE#         81
+  -------         ENDPROC       BITMAP_DISPLAY
+  -------         PROC          BITMAP
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0943H         LINE#         82
+  C:0943H         LINE#         83
+  C:0943H         LINE#         85
+  C:0946H         LINE#         86
+  C:0946H         LINE#         87
+  C:0948H         LINE#         88
+  C:0948H         LINE#         89
+  C:095DH         LINE#         90
+  C:0962H         LINE#         91
+  C:0962H         LINE#         93
+  C:0962H         LINE#         94
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/24/2021  08:55:17  PAGE 5
+
+
+  C:0964H         LINE#         95
+  C:0964H         LINE#         96
+  C:0979H         LINE#         97
+  C:097DH         LINE#         98
+  C:097DH         LINE#         99
+  -------         ENDPROC       BITMAP
+  -------         PROC          BITMAP_INIT
+  C:08F9H         LINE#         100
+  C:08F9H         LINE#         101
+  C:08F9H         LINE#         102
+  C:08FCH         LINE#         103
+  C:08FFH         LINE#         105
+  C:0902H         LINE#         106
+  C:0905H         LINE#         108
+  C:0908H         LINE#         109
+  C:090BH         LINE#         111
+  C:090EH         LINE#         112
+  C:0911H         LINE#         114
+  C:0914H         LINE#         115
+  C:0917H         LINE#         117
+  C:091AH         LINE#         118
+  C:091DH         LINE#         120
+  C:0920H         LINE#         121
+  C:0923H         LINE#         123
+  C:0926H         LINE#         124
+  C:0929H         LINE#         126
+  C:092CH         LINE#         127
+  C:092FH         LINE#         129
+  C:0932H         LINE#         130
+  C:0942H         LINE#         131
+  -------         ENDPROC       BITMAP_INIT
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0161H BYTE (17%) *
+******************************************************************************
+
+Program Size: data=27.1 xdata=0 code=482
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

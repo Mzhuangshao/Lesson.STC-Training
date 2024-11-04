@@ -1,0 +1,113 @@
+C51 COMPILER V9.52.0.0   LED3                                                              09/10/2021 09:11:03 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED3
+OBJECT MODULE PLACED IN ..\obj\LED3.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\LED3.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\
+                    -LED3.lst) TABS(2) OBJECT(..\obj\LED3.obj)
+
+line level    source
+
+   1          #include "data.H"
+   2          
+   3          void BleepDelay1();
+   4          void Bleep1();
+   5          void Delay100ms();
+   6          void BleepInit();
+   7          void Timer0Init();
+   8          void Delay250us();
+   9          void Delayx100ms(unsigned char x100ms);
+  10           
+  11           void Timer0Init(void)    //50ms@11.0592MHz
+  12          {
+  13   1        AUXR &= 0x7F;   
+  14   1        TMOD &= 0xF0;   
+  15   1        TL0 = 0x00;   
+  16   1        TH0 = 0x4C;   
+  17   1        TF0 = 0;    
+  18   1        TR0 = 1;
+  19   1        ET0 = 1;
+  20   1        EA = 1;
+  21   1      }
+  22          unsigned char bleepcount = 0;
+  23          bit count = 0;
+  24          void BleepInit() interrupt 1
+  25          {
+  26   1         bleepcount++;
+  27   1        if(bleepcount>=10)
+  28   1        {
+  29   2         bleepcount=0;
+  30   2         count=1;
+  31   2        }
+  32   1      }
+  33          
+  34          
+  35          void main(void)
+  36          {
+  37   1        P3M0 |= 0x80;
+  38   1        P3M1 &= 0x7f;
+  39   1        Timer0Init();
+  40   1        TR0=1;
+  41   1        while(1)
+  42   1        {
+  43   2          if(count==0)
+  44   2          {
+  45   3            P37 = !P37;
+  46   3            Delay250us();
+  47   3          }
+  48   2          else
+  49   2          {
+  50   3            P37 = 0;
+  51   3          }
+  52   2        }
+  53   1      }
+  54          /*void BleepDelay1()    //@11.0592MHz
+C51 COMPILER V9.52.0.0   LED3                                                              09/10/2021 09:11:03 PAGE 2   
+
+  55          {
+  56            unsigned char i, j;
+  57            
+  58            i = 10;
+  59            j = 180;
+  60            do
+  61            {
+  62              while (--j);
+  63            } while (--i);
+  64          }
+  65          
+  66          
+  67          void Bleep1(void)
+  68          {
+  69           unsigned int i;
+  70           for(i=1400;i>0;i--)
+  71           {
+  72            P37 = !P37;
+  73            Delay250us();
+  74           }
+  75          }*/
+  76          
+  77          
+  78          void Delay250us()   //@11.0592MHz
+  79          {
+  80   1        unsigned char i, j;
+  81   1        i = 20;
+  82   1        j = 190;
+  83   1        do
+  84   1        {
+  85   2          while (--j);
+  86   2        } while (--i);
+  87   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     78    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

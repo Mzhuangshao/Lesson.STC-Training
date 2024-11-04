@@ -1,0 +1,33 @@
+C51 COMPILER V9.52.0.0   DATA                                                              09/16/2021 14:55:10 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DATA
+OBJECT MODULE PLACED IN .\obj\data.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\data.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\data.
+                    -lst) TABS(2) OBJECT(.\obj\data.obj)
+
+line level    source
+
+   1          #include "timer.h"
+   2          
+   3          void main()
+   4          {
+   5   1        while(1)
+   6   1        {
+   7   2        
+   8   2        }
+   9   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      2    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

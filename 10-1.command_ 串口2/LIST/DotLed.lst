@@ -1,0 +1,121 @@
+C51 COMPILER V9.52.0.0   DOTLED                                                            09/26/2021 15:13:20 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE DOTLED
+OBJECT MODULE PLACED IN ..\OBJ\DotLed.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\DotLed.c BROWSE INCDIR(..\USER) DEBUG OBJECTEXTEND PRINT(..\LIS
+                    -T\DotLed.lst) TABS(2) OBJECT(..\OBJ\DotLed.obj)
+
+line level    source
+
+   1          #include "DotLed.H" 
+   2          static  unsigned char code Love_Tab1[] = {0xff,0x93,0x6d,0x7d,0xbb,0xd7,0xef,0xff};//空心心形
+   3          static  unsigned char code Love_Tab2[] = {0xff,0x93,0x01,0x01,0x83,0xc7,0xef,0xff};//实心心形
+   4          
+   5          volatile  unsigned char Dot_Tab[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};//定义点阵显示数组，或者称之
+             -为缓冲，并初始化为显示心形
+   6          
+   7          void  DotLed_Display(void)
+   8          {
+   9   1        static  unsigned char Row_Cnt = 0;
+  10   1        
+  11   1        P32 = 0;P41 = 0;P33 = 0;P36 = 0;P44 = 0;P34 = 0;P42 = 0;P35 = 0;
+  12   1        Row_Cnt ++;
+  13   1        if(Row_Cnt > 8)
+  14   1        {
+  15   2          Row_Cnt = 1;
+  16   2        }
+  17   1        P2 = Dot_Tab[Row_Cnt - 1];
+  18   1        switch(Row_Cnt)
+  19   1        {
+  20   2          case  1:P32 = 1;break;
+  21   2          case  2:P41 = 1;break;
+  22   2          case  3:P33 = 1;break;
+  23   2          case  4:P36 = 1;break;
+  24   2          case  5:P44 = 1;break;
+  25   2          case  6:P34 = 1;break;
+  26   2          case  7:P42 = 1;break;
+  27   2          case  8:P35 = 1;break;
+  28   2          default:break;
+  29   2        }
+  30   1      }
+  31          
+  32          void  DotLed_Init(void)
+  33          {
+  34   1        P3M1 = 0x00;
+  35   1        P3M0 = 0x7f;
+  36   1        
+  37   1        P4M1 = 0x00;
+  38   1        P4M0 = 0xff;
+  39   1        
+  40   1        P2M1 = 0x00;
+  41   1        P2M0 = 0xff;
+  42   1        
+  43   1      }
+  44          void  DotLed_Renew(void)
+  45          {
+  46   1      //  static  unsigned char Time1s_Cnt = 0;
+  47   1      //  
+  48   1      //  unsigned char i;
+  49   1      //  static  bit Love_Flag = 0;
+  50   1      //  
+  51   1      //  Time1s_Cnt ++;
+  52   1      //  if( Time1s_Cnt >=100)
+  53   1      //  {
+C51 COMPILER V9.52.0.0   DOTLED                                                            09/26/2021 15:13:20 PAGE 2   
+
+  54   1      //     Time1s_Cnt = 0;
+  55   1      //    
+  56   1      //     Love_Flag = !Love_Flag;
+  57   1      //  }
+  58   1      //  
+  59   1      //  
+  60   1      //  if( Love_Flag)//空心
+  61   1      //  {
+  62   1      //    for(i=0;i<8;i++)
+  63   1      //    {
+  64   1      //      Dot_Tab[i] =  Love_Tab1[i];
+  65   1      //    }
+  66   1      //  }
+  67   1      //  else//实心
+  68   1      //  {
+  69   1      //    for(i=0;i<8;i++)
+  70   1      //    {
+  71   1      //      Dot_Tab[i] =  Love_Tab2[i];
+  72   1      //    } 
+  73   1      //    
+  74   1      //  }
+  75   1      //  
+  76   1        unsigned char i;
+  77   1        
+  78   1        if(Rec_Val == 0x55)
+  79   1        {
+  80   2          Rec_Val = 0;
+  81   2          for(i=0;i<8;i++)
+  82   2          {
+  83   3            Dot_Tab[i] =  Love_Tab1[i];
+  84   3          }
+  85   2        }
+  86   1        if(Rec_Val == 0xaa)
+  87   1        {
+  88   2          Rec_Val = 0;
+  89   2          for(i=0;i<8;i++)
+  90   2          {
+  91   3            Dot_Tab[i] =  Love_Tab2[i];
+  92   3          }
+  93   2        }
+  94   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    182    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      9    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

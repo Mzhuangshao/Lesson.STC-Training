@@ -1,0 +1,5 @@
+"..\obj\STARTUP.obj",
+"..\obj\light.obj",
+"..\obj\light2.obj" 
+TO "..\obj\COOL" 
+PRINT(".\COOL.m51")

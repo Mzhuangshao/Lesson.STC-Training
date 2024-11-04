@@ -1,0 +1,4 @@
+"..\obj\STARTUP.obj",
+"..\obj\timer5.obj" 
+TO "..\obj\timer" 
+PRINT("..\list\timer.m51")

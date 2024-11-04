@@ -1,0 +1,10 @@
+"..\obj\STARTUP.obj",
+"..\obj\main.obj",
+"..\obj\BitMap.obj",
+"..\obj\Bleep.obj",
+"..\obj\KEY.obj",
+"..\obj\LED.obj",
+"..\obj\SysLed.obj",
+"..\obj\Timer.obj" 
+TO "..\obj\function" 
+PRINT("..\list\function.m51") RAMSIZE(64) 

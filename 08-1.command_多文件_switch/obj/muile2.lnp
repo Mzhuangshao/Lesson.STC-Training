@@ -1,0 +1,9 @@
+".\obj\STARTUP.obj",
+".\obj\main.obj",
+".\obj\BitMap.obj",
+".\obj\Bleep.obj",
+".\obj\LED.obj",
+".\obj\SysLed.obj",
+".\obj\timer.obj" 
+TO ".\obj\muile2" 
+PRINT(".\list\muile2.m51") RAMSIZE(256) 

@@ -1,0 +1,51 @@
+C51 COMPILER V9.52.0.0   BEN                                                               09/24/2021 14:48:19 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BEN
+OBJECT MODULE PLACED IN ..\OBJ\ben.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\ben.c OPTIMIZE(0,SPEED) BROWSE INCDIR(..\USER) DEBUG OBJECTEXTE
+                    -ND PRINT(..\LIST\ben.lst) TABS(2) OBJECT(..\OBJ\ben.obj)
+
+line level    source
+
+   1          #include "ben.H"//包含头文件，定时器有关
+   2          
+   3          void ben_Mode1(void)
+   4          {
+   5   1        static unsigned char Time200ms_Cnt = 0;
+   6   1        static unsigned char ben_status = 0;
+   7   1        
+   8   1        Time200ms_Cnt ++;
+   9   1        if(Time200ms_Cnt >= 20)
+  10   1        {
+  11   2          Time200ms_Cnt = 0;
+  12   2          ben_status ++;
+  13   2          
+  14   2        }
+  15   1        switch(ben_status)
+  16   1        {
+  17   2          case  0:P0 = 0xff; break;
+  18   2          case  1:P0 = 0xfe; break;
+  19   2          case  2:P0 = 0xfd; break;
+  20   2          case  3:P0 = 0xfb; break;
+  21   2          case  4:P0 = 0xf7; break;
+  22   2          case  5:P0 = 0xef; break;
+  23   2          case  6:P0 = 0xdf; break;
+  24   2          case  7:P0 = 0xbf; break;
+  25   2          case  8:P0 = 0x7f;ben_status = 0; break;  
+  26   2        }
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     89    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

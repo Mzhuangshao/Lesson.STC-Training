@@ -1,0 +1,118 @@
+C51 COMPILER V9.52.0.0   BLEEP                                                             09/28/2021 10:43:43 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BLEEP
+OBJECT MODULE PLACED IN .\obj\Bleep.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\Bleep.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\Blee
+                    -p.lst) TABS(2) OBJECT(.\obj\Bleep.obj)
+
+line level    source
+
+   1          #include "Bleep.h"
+   2          
+   3          void Bleep_Init()
+   4          {
+   5   1        P3M1 &= 0x7f;
+   6   1        P3M0 |= 0x80;
+   7   1        CCON = 0;
+   8   1        CL = 0;
+   9   1        CH = 0;
+  10   1        CMOD =0x00;
+  11   1        PCA_PWM2 = 0x00;
+  12   1        CCAP2H = CCAP2L = 125;
+  13   1        CCAPM2 = 0x42;
+  14   1        CR = 1;
+  15   1      }
+  16          
+  17          void  Bleep(void)
+  18          {
+  19   1        static  unsigned int Time100ms_Cnt = 0;   //????,??100ms
+  20   1        
+  21   1        
+  22   1        if(trigger_KEY_control)
+  23   1        {
+  24   2          BleepON();//P37 = !P37;
+  25   2          Time100ms_Cnt ++;
+  26   2          if(Time100ms_Cnt >= 20)
+  27   2          {
+  28   3            Time100ms_Cnt = 0;
+  29   3            trigger_KEY_control = 0;
+  30   3            P37 = 0;
+  31   3          }
+  32   2        }
+  33   1        else
+  34   1        {
+  35   2          BleepOFF();
+  36   2          Time100ms_Cnt = 0;  
+  37   2        }
+  38   1      
+  39   1      }
+  40          
+  41          
+  42          
+  43          void BleepON()
+  44          {
+  45   1        CR = 1;
+  46   1      }
+  47          void BleepOFF()
+  48          {
+  49   1        CR = 0;
+  50   1      }
+  51          /*void Bleep()
+  52          {
+  53            static unsigned char Count = 0;
+  54            static unsigned char Bleep_Count = 0;
+C51 COMPILER V9.52.0.0   BLEEP                                                             09/28/2021 10:43:43 PAGE 2   
+
+  55            Count ++;
+  56            if(Count >=20)
+  57            {
+  58              Count = 0;
+  59              Bleep_Count ++;
+  60              if(Bleep_Count >= 5)
+  61              {
+  62                Bleep_Count = 0;
+  63              }
+  64            }
+  65              switch(Bleep_Count)
+  66            {
+  67              case 0:BleepON();break;
+  68              case 1:BleepON();break;
+  69              case 2:BleepOFF();break;
+  70              case 3:BleepOFF();break;
+  71              case 4:BleepOFF();break;
+  72            }
+  73          }
+  74          
+  75          
+  76          void Bleep(void)
+  77          {
+  78            static unsigned int BleepTimer = 0;
+  79             BleepTimer++;
+  80            if (BleepTimer >= 4000)
+  81            {
+  82              BleepTimer = 0;
+  83            }
+  84            if(BleepTimer >= 0)
+  85             {
+  86              P37 = !P37;
+  87             }
+  88            if(BleepTimer >= 800)
+  89             {
+  90              P37 = 0;
+  91             }
+  92          }*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     77    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

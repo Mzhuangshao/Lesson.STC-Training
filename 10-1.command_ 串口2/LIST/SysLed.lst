@@ -1,0 +1,42 @@
+C51 COMPILER V9.52.0.0   SYSLED                                                            09/26/2021 15:13:20 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SYSLED
+OBJECT MODULE PLACED IN ..\OBJ\SysLed.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\SysLed.c BROWSE INCDIR(..\USER) DEBUG OBJECTEXTEND PRINT(..\LIS
+                    -T\SysLed.lst) TABS(2) OBJECT(..\OBJ\SysLed.obj)
+
+line level    source
+
+   1          #include "SysLed.H"   
+   2          
+   3          void  SysLed_Display(void)
+   4          {
+   5   1        //如无static修饰，则称为自动Auto变量，每次进入这个函数都将使用初始值
+   6   1        //这里需要每隔10ms进行累加工作，所以必须使用前缀static来修饰，表示变量保留最后修改的值
+   7   1        static  unsigned char Time500ms_Cnt = 0; //用于计算500ms的时间变量，计50个数就可以
+   8   1        
+   9   1        Time500ms_Cnt ++;
+  10   1        if(Time500ms_Cnt >= 50)
+  11   1        {
+  12   2          Time500ms_Cnt = 0;
+  13   2          
+  14   2          P45 = !P45;   //系统灯状态取反
+  15   2        
+  16   2        }
+  17   1        
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     15    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

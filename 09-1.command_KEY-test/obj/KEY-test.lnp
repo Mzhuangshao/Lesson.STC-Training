@@ -1,0 +1,10 @@
+".\obj\STARTUP.obj",
+".\obj\main.obj",
+".\obj\BitMap.obj",
+".\obj\Bleep.obj",
+".\obj\KEY.obj",
+".\obj\LED.obj",
+".\obj\SysLed.obj",
+".\obj\timer.obj" 
+TO ".\obj\KEY-test" 
+PRINT(".\list\KEY-test.m51") RAMSIZE(256) 

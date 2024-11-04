@@ -1,0 +1,177 @@
+C51 COMPILER V9.52.0.0   LED                                                               09/25/2021 21:03:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\obj\LED.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\LED.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\LED.ls
+                    -t) TABS(2) OBJECT(.\obj\LED.obj)
+
+line level    source
+
+   1          #include "LED.h"
+   2          
+   3          unsigned char code light1_Tab[] = {0xff,0x00};
+   4          unsigned char code light4_Tab[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0
+             -xfe,0xff};
+   5          
+   6          //extern volatile unsigned char lightCount = 0;
+   7          
+   8          void LED_Display()    
+   9          {
+  10   1        static unsigned int lightCount = 0;
+  11   1        static unsigned int LED_num = 0;
+  12   1        lightCount++;
+  13   1        if(lightCount >= 20)
+  14   1        {
+  15   2          lightCount = 0;
+  16   2          LED_num++;
+  17   2        }
+  18   1          if(LED_num >= 20)
+  19   1          {
+  20   2            LED_num = 0;
+  21   2          }
+  22   1        switch(LED_num)
+  23   1        {
+  24   2          case 0:P0 = light1_Tab[0];break;
+  25   2          case 1:P0 = light1_Tab[1];break;
+  26   2          case 2:P0 = light1_Tab[0];break;
+  27   2          case 3:P0 = light1_Tab[1];break;
+  28   2          case 4:P0 = light1_Tab[0];break;
+  29   2          case 5:P0 = light4_Tab[0];break;
+  30   2          case 6:P0 = light4_Tab[1];break;
+  31   2          case 7:P0 = light4_Tab[2];break;
+  32   2          case 8:P0 = light4_Tab[3];break;
+  33   2          case 9:P0 = light4_Tab[4];break;
+  34   2          case 10:P0 = light4_Tab[5];break;
+  35   2          case 11:P0 = light4_Tab[6];break;
+  36   2          case 12:P0 = light4_Tab[7];break;
+  37   2          case 13:P0 = light4_Tab[8];break;
+  38   2          case 14:P0 = light4_Tab[9];break;
+  39   2          case 15:P0 = light4_Tab[10];break;
+  40   2          case 16:P0 = light4_Tab[11];break;
+  41   2          case 17:P0 = light4_Tab[12];break;
+  42   2          case 18:P0 = light4_Tab[13];break;
+  43   2          case 19:P0 = light4_Tab[14];break;
+  44   2          case 20:P0 = light4_Tab[15];break;
+  45   2          //case 21:P0 = light4_Tab[16];break;
+  46   2          //case 21:P0 = light4_Tab[15];break;
+  47   2          default:break;
+  48   2        }
+  49   1      }
+  50          /*void nor_LED()
+  51          {
+  52            static unsigned int lightCount = 0;
+  53            static unsigned int LED_num = 0;
+C51 COMPILER V9.52.0.0   LED                                                               09/25/2021 21:03:23 PAGE 2   
+
+  54            lightCount++;
+  55            if(lightCount > 20)
+  56            {
+  57              lightCount = 0;
+  58              LED_num++;
+  59            }
+  60            if(LED_num == 0)
+  61            {
+  62              P0 = light1_Tab[0];
+  63            }
+  64            if(LED_num == 2)
+  65            {
+  66              P0 = light1_Tab[1];
+  67            }
+  68            if(LED_num == 4)
+  69            {
+  70              P0 = light1_Tab[0];
+  71            }
+  72            if(LED_num == 6)
+  73            {
+  74              P0 = light1_Tab[1];
+  75            }
+  76            if(LED_num == 7)
+  77            {
+  78              P0 = light1_Tab[0];
+  79            }
+  80            if(LED_num == 8)
+  81            {
+  82              P0 = light4_Tab[0];
+  83            }
+  84            if(LED_num == 9)
+  85            {
+  86              P0 = light4_Tab[1];
+  87            }
+  88            if(LED_num == 10)
+  89            {
+  90              P0 = light4_Tab[2];
+  91            }
+  92            if(LED_num == 11)
+  93            {
+  94              P0 = light4_Tab[3];
+  95            }
+  96            if(LED_num == 12)
+  97            {
+  98              P0 = light4_Tab[4];
+  99            }
+ 100            if(LED_num == 13)
+ 101            {
+ 102              P0 = light4_Tab[5];
+ 103            }
+ 104            if(LED_num == 14)
+ 105            {
+ 106              P0 = light4_Tab[6];
+ 107            }
+ 108            if(LED_num == 15)
+ 109            {
+ 110              P0 = light4_Tab[7];
+ 111            }
+ 112            if(LED_num == 16)
+ 113            {
+ 114              P0 = light4_Tab[8];
+ 115            }
+C51 COMPILER V9.52.0.0   LED                                                               09/25/2021 21:03:23 PAGE 3   
+
+ 116            if(LED_num == 17)
+ 117            {
+ 118              P0 = light4_Tab[9];
+ 119            }
+ 120            if(LED_num == 18)
+ 121            {
+ 122              P0 = light4_Tab[10];
+ 123            }
+ 124            if(LED_num == 19)
+ 125            {
+ 126              P0 = light4_Tab[11];
+ 127            }
+ 128            if(LED_num == 20)
+ 129            {
+ 130              P0 = light4_Tab[12];
+ 131            }
+ 132            if(LED_num == 21)
+ 133            {
+ 134              P0 = light4_Tab[13];
+ 135            }
+ 136            if(LED_num == 22)
+ 137            {
+ 138              P0 = light4_Tab[14];
+ 139            }
+ 140            if(LED_num == 23)
+ 141            {
+ 142              P0 = light4_Tab[15];
+ 143            }
+ 144            if(LED_num == 24)
+ 145            {
+ 146              LED_num = 0;
+ 147            }
+ 148          }*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    232    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

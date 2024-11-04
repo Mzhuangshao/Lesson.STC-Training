@@ -1,0 +1,10 @@
+"..\OBJ\STARTUP.obj",
+"..\OBJ\main.obj",
+"..\OBJ\Timer.obj",
+"..\OBJ\Sysled.obj",
+"..\OBJ\Buzzer.obj",
+"..\OBJ\Dotled.obj",
+"..\OBJ\ben.obj",
+"..\OBJ\rad.obj" 
+TO "..\OBJ\BDSH" 
+PRINT("..\LIST\BDSH.m51")

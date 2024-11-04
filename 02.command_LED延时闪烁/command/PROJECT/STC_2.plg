@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\15_XYX\command_2\command\PROJECT\STC_2.uvproj
+Project File Date:  09/03/2021
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+    ADDRESS: 080AH
+Program Size: data=9.0 xdata=0 code=15
+"STC_2" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?C_START
+    MODULE:  ..\OBJ\STARTUP.obj (?C_STARTUP)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?C_START
+    MODULE:  ..\OBJ\STARTUP.obj (?C_STARTUP)
+    ADDRESS: 080AH
+Program Size: data=9.0 xdata=0 code=15
+creating hex file from "..\OBJ\STC_2"...
+"..\OBJ\STC_2" - 0 Error(s), 2 Warning(s).

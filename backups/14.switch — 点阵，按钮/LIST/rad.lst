@@ -1,0 +1,142 @@
+C51 COMPILER V9.52.0.0   RAD                                                               09/24/2021 14:48:19 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE RAD
+OBJECT MODULE PLACED IN ..\OBJ\rad.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\rad.c OPTIMIZE(0,SPEED) BROWSE INCDIR(..\USER) DEBUG OBJECTEXTE
+                    -ND PRINT(..\LIST\rad.lst) TABS(2) OBJECT(..\OBJ\rad.obj)
+
+line level    source
+
+   1          #include "rad.H"    //包含头文件，定时器有关 自己创建的！！！！
+   2          
+   3          //定义三个变量
+   4          volatile bit rad_Valid_Flag = 0;
+   5          volatile bit K1_Flag = 0;
+   6          volatile bit K2_Flag = 0;
+   7          
+   8          
+   9          void K1_Check(void)
+  10          {
+  11   1        static unsigned char Cnt = 0;
+  12   1        static unsigned char K1_Status = 0;
+  13   1        switch(K1_Status)
+  14   1        {
+  15   2          case 0:  //初始状态，注意是冒号
+  16   2            if(K1 == 0)
+  17   2            {
+  18   3               Cnt = 0;
+  19   3              K1_Status = 1;
+  20   3            }
+  21   2            else
+  22   2            {
+  23   3               Cnt ++;
+  24   3              if( Cnt >= 5)
+  25   3              {
+  26   4                 Cnt = 0;
+  27   4                K1_Flag = 0;
+  28   4              }
+  29   3            }
+  30   2            break;   //退出语句，退出当前状态，否则继续往下执行
+  31   2            
+  32   2            case 1:  //去抖状态
+  33   2            if(K1 == 0)
+  34   2            {
+  35   3              Cnt ++;
+  36   3              if( Cnt >= 5)
+  37   3              {
+  38   4                Cnt = 0;
+  39   4                K1_Flag = 1;
+  40   4                rad_Valid_Flag = 1;
+  41   4                K1_Status  = 2;
+  42   4              }
+  43   3            }
+  44   2            else
+  45   2            {
+  46   3                 Cnt = 0;
+  47   3                K1_Status  = 0;
+  48   3              }
+  49   2            
+  50   2            break;
+  51   2            
+  52   2                case 2:  //松开检测状态
+  53   2            if(K1)
+  54   2            {
+C51 COMPILER V9.52.0.0   RAD                                                               09/24/2021 14:48:19 PAGE 2   
+
+  55   3              Cnt = 0;
+  56   3              K1_Status = 0;
+  57   3            }
+  58   2            break;
+  59   2          }
+  60   1      }
+  61                    
+  62          void K2_Check(void)
+  63          {
+  64   1        static unsigned char Cnt = 0;
+  65   1        static unsigned char K2_Status = 0;
+  66   1        switch(K2_Status)
+  67   1        {
+  68   2          case 0:  //初始状态，注意是冒号
+  69   2            if(K2 == 0)
+  70   2            {
+  71   3               Cnt = 0;
+  72   3              K2_Status = 1;
+  73   3            }
+  74   2            else
+  75   2            {
+  76   3               Cnt ++;
+  77   3              if( Cnt >= 5)
+  78   3              {
+  79   4                 Cnt = 0;
+  80   4                K2_Flag = 0;
+  81   4              }
+  82   3            }
+  83   2            break;   //退出语句，退出当前状态，否则继续往下执行
+  84   2            
+  85   2            case 1:  //去抖状态
+  86   2            if(K2 == 0)
+  87   2            {
+  88   3              Cnt ++;
+  89   3              if( Cnt >= 5)
+  90   3              {
+  91   4                Cnt = 0;
+  92   4                K2_Flag = 1;
+  93   4                rad_Valid_Flag = 1;
+  94   4                K2_Status  = 2;
+  95   4              }
+  96   3            }
+  97   2            else
+  98   2            {
+  99   3                 Cnt = 0;
+ 100   3                K2_Status  = 0;
+ 101   3              }
+ 102   2            
+ 103   2            break;
+ 104   2            
+ 105   2                case 2:  //松开检测状态
+ 106   2            if(K2)
+ 107   2            {
+ 108   3              Cnt = 0;
+ 109   3              K2_Status = 0;
+ 110   3            }
+ 111   2            break;
+ 112   2          }
+ 113   1      }
+ 114                
+
+
+C51 COMPILER V9.52.0.0   RAD                                                               09/24/2021 14:48:19 PAGE 3   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    166    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      3    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

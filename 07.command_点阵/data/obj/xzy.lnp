@@ -1,0 +1,4 @@
+"..\obj\STARTUP.obj",
+"..\obj\xyz.obj" 
+TO "..\obj\xzy" 
+PRINT("..\list\xzy.m51")

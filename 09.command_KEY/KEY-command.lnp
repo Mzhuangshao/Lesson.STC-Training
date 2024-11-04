@@ -1,0 +1,9 @@
+"STARTUP.obj",
+"main.obj",
+"timer.obj",
+"BitMap.obj",
+"button.obj",
+"Bleep.obj",
+"LED.obj",
+"SysLed.obj" 
+TO "KEY-command" 

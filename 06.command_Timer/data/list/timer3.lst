@@ -1,0 +1,243 @@
+C51 COMPILER V9.52.0.0   TIMER3                                                            09/15/2021 10:40:05 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER3
+OBJECT MODULE PLACED IN ..\obj\timer3.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\timer3.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\lis
+                    -t\timer3.lst) TABS(2) OBJECT(..\obj\timer3.obj)
+
+line level    source
+
+   1          #include "data.H"
+   2          
+   3          sbit BitMap1 = P3^2;  //P32
+   4          sbit BitMap2 = P4^1;  //P41
+   5          sbit BitMap3 = P3^3;  //P33
+   6          sbit BitMap4 = P3^6;  //P36
+   7          sbit BitMap5 = P4^4;  //P44
+   8          sbit BitMap6 = P3^4;  //P34
+   9          sbit BitMap7 = P4^2;  //P42
+  10          sbit BitMap8 = P3^5;  //P35
+  11          
+  12          unsigned int code FontTab0[] = {0x0e,0x04};
+  13          unsigned int code FontTab1[] = {0x36,0x49,0x41,0x22,0x14,0x08};
+  14          unsigned int code FontTab2[] = {0x0e,0x11,0x10};
+  15          unsigned int code FontTab3[] = {0x10,0x16,0x11};
+  16          unsigned int code FontTab4[] = {0x02,0x00};
+  17          unsigned int code FontTab5[] = {0x1e,0x11};
+  18          unsigned int code FontTab6[] = {0x0e,0x01,0x0f,0x11};
+  19          void Bleep_Init();
+  20          void BitMap_Init();
+  21          void Timer0Init();
+  22          void Timer1Init();
+  23          void Timer2Init();
+  24          //void Delay100us();
+  25          //
+  26          //
+  27          void main()                         //main function
+  28          {
+  29   1        BitMap_Init();
+  30   1        //Bleep_Init();
+  31   1        
+  32   1        Timer0Init();
+  33   1        Timer1Init();
+  34   1        Timer2Init();
+  35   1       while(1)
+  36   1       {
+  37   2          
+  38   2          
+  39   2       }
+  40   1      }
+  41          
+  42          void Bleep_Init()
+  43          {
+  44   1        P3M1 &= 0x7f;
+  45   1        P3M0 |= 0x80;
+  46   1      }
+  47          /*
+  48          void BitMap_Init()  //推挽输出
+  49          {
+  50            P2M1 &= 0x00;
+  51            P2M0 |= 0xff;
+  52            
+  53            P3M1 &= 0xfb;
+  54            P3M0 |= 0x04;
+C51 COMPILER V9.52.0.0   TIMER3                                                            09/15/2021 10:40:05 PAGE 2   
+
+  55            
+  56            P4M1 &= 0xfd;
+  57            P4M0 |= 0x02;
+  58            
+  59            P3M1 &= 0xf7;
+  60            P3M0 |= 0x08;
+  61            
+  62            P3M1 &= 0xbf;
+  63            P3M0 |= 0x40;
+  64            
+  65            P4M1 &= 0xef;
+  66            P4M0 |= 0x10;
+  67            
+  68            P3M1 &= 0xef;
+  69            P3M0 |= 0x10;
+  70            
+  71            P4M1 &= 0xfb;
+  72            P4M0 |= 0x04;
+  73            
+  74            P3M1 &= 0xdf;
+  75            P3M0 |= 0x20;
+  76            
+  77            P2 = 0x00;
+  78            BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+  79          }*/
+  80          //
+  81          void T0Isr() interrupt 1  //中断服务 蜂鸣器控制
+  82          {
+  83   1        static unsigned int BleepTimer = 0;
+  84   1         BleepTimer++;
+  85   1        if (BleepTimer >= 4000)
+  86   1        {
+  87   2          BleepTimer = 0;
+  88   2        }
+  89   1        if(BleepTimer >= 3200)
+  90   1         {
+  91   2          P37 = !P37;
+  92   2         }
+  93   1        if(BleepTimer >= 800)
+  94   1         {
+  95   2          P37 = 0;
+  96   2         }
+  97   1      }
+  98          //
+  99          void T1Isr() interrupt 3  //中断服务 P2控制
+ 100            {
+ 101   1        static unsigned int T1Count = 0;
+ 102   1        static unsigned char Count = 0;
+ 103   1        static unsigned char Count1 = 0;
+ 104   1        T1Count ++;
+ 105   1        if (T1Count >= 5000)
+ 106   1        {
+ 107   2          T1Count = 0;
+ 108   2          Count ++;
+ 109   2        }
+ 110   1        if(Count ==2)
+ 111   1        {
+ 112   2          Count1++;
+ 113   2          Count = 0;
+ 114   2        }
+ 115   1        if(Count1 == 0)
+ 116   1        {
+C51 COMPILER V9.52.0.0   TIMER3                                                            09/15/2021 10:40:05 PAGE 3   
+
+ 117   2          P2 = ~FontTab0[0];BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 118   2          P2 = ~FontTab0[1];BitMap1 = 0;BitMap2 = 1;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 119   2          P2 = ~FontTab0[1];BitMap1 = 0;BitMap2 = 0;BitMap3 = 1;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 120   2          P2 = ~FontTab0[1];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 1;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 121   2          P2 = ~FontTab0[1];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 1;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 122   2          P2 = ~FontTab0[0];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 1;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 123   2          //BitMap1 = 0;BitMap2 = 0;BitMap3 = 1;BitMap4 = 1;BitMap5 = 1;BitMap6 = 1;BitMap7 = 1;BitMap8 = 1;
+ 124   2        }
+ 125   1        else if (Count1 == 1)
+ 126   1        {
+ 127   2          P2 = ~FontTab1[0];BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 128   2          P2 = ~FontTab1[1];BitMap1 = 0;BitMap2 = 1;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 129   2          P2 = ~FontTab1[2];BitMap1 = 0;BitMap2 = 0;BitMap3 = 1;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 130   2          P2 = ~FontTab1[3];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 1;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 131   2          P2 = ~FontTab1[4];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 1;BitMap6 = 0;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 132   2          P2 = ~FontTab1[5];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 1;BitMap7 = 0;Bi
+             -tMap8 = 0;
+ 133   2        }
+ 134   1        else if (Count1 == 2)
+ 135   1        {
+ 136   2        
+ 137   2        }
+ 138   1        else if (Count1 == 3)
+ 139   1        {
+ 140   2          
+ 141   2        }
+ 142   1        else if (Count1 == 4)
+ 143   1        {
+ 144   2          Count = 0;
+ 145   2        }
+ 146   1      }
+ 147          //
+ 148          void T2Isr() interrupt 12 //中断服务 P45控制
+ 149          {
+ 150   1        static unsigned int T2Count = 0;
+ 151   1        T2Count ++;
+ 152   1        if(T2Count >= 4)
+ 153   1        {
+ 154   2          T2Count = 0;
+ 155   2          P45 = !P45;
+ 156   2        }
+ 157   1      }
+ 158          //
+ 159          void Timer0Init(void)   //250us@12.000MHz
+ 160          {
+ 161   1        AUXR |= 0x80; 
+ 162   1        TMOD &= 0xF0; 
+ 163   1        TL0 = 0x48; 
+ 164   1        TH0 = 0xF4;
+ 165   1        TF0 = 0;
+ 166   1        TR0 = 1;
+C51 COMPILER V9.52.0.0   TIMER3                                                            09/15/2021 10:40:05 PAGE 4   
+
+ 167   1        ET0 = 1;
+ 168   1        EA = 1;
+ 169   1      }
+ 170          void Timer1Init(void)   //250us@12.000MHz
+ 171          {
+ 172   1        AUXR |= 0x80; 
+ 173   1        TMOD &= 0xF0; 
+ 174   1        TL1 = 0x48; 
+ 175   1        TH1 = 0xF4;
+ 176   1        TF1 = 0;
+ 177   1        TR1 = 1;
+ 178   1        ET1 = 1;
+ 179   1        EA = 1;
+ 180   1      }
+ 181          void Timer2Init(void)   //100us@12.000MHz
+ 182          {
+ 183   1        AUXR &= 0xFB;   //?????12T??
+ 184   1        T2L = 0x9C;   //??????
+ 185   1        T2H = 0xFF;   //??????
+ 186   1        AUXR |= 0x10;   //???2????
+ 187   1      
+ 188   1        IE2 |= 0x04;
+ 189   1        EA = 1;
+ 190   1      }
+ 191          /*void Delay100us()   //@11.0592MHz
+ 192          {
+ 193            unsigned char i, j;
+ 194            i = 2;
+ 195            j = 15;
+ 196            do
+ 197            {
+ 198              while (--j);
+ 199            } while (--i);
+ 200          }*/
+ 201          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    534    ----
+   CONSTANT SIZE    =     44    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

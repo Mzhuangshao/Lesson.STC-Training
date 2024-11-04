@@ -1,0 +1,138 @@
+C51 COMPILER V9.52.0.0   LD                                                                09/23/2021 11:06:40 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LD
+OBJECT MODULE PLACED IN ..\OBJ\LD.obj
+COMPILER INVOKED BY: C:\Keil_V4\C51\BIN\C51.EXE ..\USER\LD.c BROWSE INCDIR(..\USER) DEBUG OBJECTEXTEND PRINT(..\LIST\LD.
+                    -lst) TABS(2) OBJECT(..\OBJ\LD.obj)
+
+line level    source
+
+   1          #include "LD.H"   //包含头文件，定时器有关 自己创建的！！！！
+   2          
+   3          unsigned char code Pdd_Tab[] = {0xff,0x00};
+   4          unsigned char code Pdd1_Tab[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xf
+             -e,0xff};
+   5          
+   6          
+   7          void LD_LED()
+   8          {
+   9   1         static unsigned int  XztCount = 0;
+  10   1         static unsigned int  LED_num = 0;
+  11   1         XztCount++;
+  12   1         if(XztCount > 20)
+  13   1         {
+  14   2            XztCount = 0;
+  15   2            LED_num++;
+  16   2         }   
+  17   1         if(LED_num == 0)
+  18   1         {
+  19   2           P0 = Pdd_Tab[0];
+  20   2         }
+  21   1         if(LED_num == 2)
+  22   1         {
+  23   2           P0 = Pdd_Tab[1];
+  24   2         }
+  25   1         if(LED_num == 4)
+  26   1         {
+  27   2           P0 = Pdd_Tab[0];
+  28   2         }
+  29   1         if(LED_num == 6)
+  30   1         {
+  31   2           P0 = Pdd_Tab[1];
+  32   2         } 
+  33   1         if(LED_num == 7)
+  34   1         {
+  35   2           P0 = Pdd_Tab[0];
+  36   2         } 
+  37   1         if(LED_num == 8)
+  38   1         {
+  39   2           P0 = Pdd1_Tab[0];
+  40   2         }
+  41   1         if(LED_num == 9)
+  42   1         {
+  43   2           P0 = Pdd1_Tab[1];
+  44   2         }
+  45   1         if(LED_num == 10)
+  46   1         {
+  47   2           P0 = Pdd1_Tab[2];
+  48   2         }
+  49   1         if(LED_num == 11)
+  50   1         {
+  51   2           P0 = Pdd1_Tab[3];
+  52   2         }
+  53   1         if(LED_num == 12)
+C51 COMPILER V9.52.0.0   LD                                                                09/23/2021 11:06:40 PAGE 2   
+
+  54   1         {
+  55   2           P0 = Pdd1_Tab[4];
+  56   2         }
+  57   1         if(LED_num == 13)
+  58   1         {
+  59   2           P0 = Pdd1_Tab[5];
+  60   2         }
+  61   1         if(LED_num == 14)
+  62   1         {
+  63   2           P0 = Pdd1_Tab[6];
+  64   2         }
+  65   1         if(LED_num == 15)
+  66   1         {
+  67   2           P0 = Pdd1_Tab[7];
+  68   2         }
+  69   1         if(LED_num == 16)
+  70   1         {
+  71   2           P0 = Pdd1_Tab[8];
+  72   2         }
+  73   1         if(LED_num == 17)
+  74   1         {
+  75   2           P0 = Pdd1_Tab[9];
+  76   2         }
+  77   1         if(LED_num == 18)
+  78   1         {
+  79   2           P0 = Pdd1_Tab[10];
+  80   2         }
+  81   1         if(LED_num == 19)
+  82   1         {
+  83   2           P0 = Pdd1_Tab[11];
+  84   2         }
+  85   1         if(LED_num == 20)
+  86   1         {
+  87   2           P0 = Pdd1_Tab[12];
+  88   2         }
+  89   1         if(LED_num == 21)
+  90   1         {
+  91   2           P0 = Pdd1_Tab[13];
+  92   2         }
+  93   1         if(LED_num == 22)
+  94   1         {
+  95   2           P0 = Pdd1_Tab[14];
+  96   2         }
+  97   1         if(LED_num == 23)
+  98   1         {
+  99   2           P0 = Pdd1_Tab[15];
+ 100   2         }
+ 101   1         if(LED_num == 24)
+ 102   1         {
+ 103   2           LED_num = 0;
+ 104   2         } 
+ 105   1         
+ 106   1         
+ 107   1      }
+ 108          
+ 109          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    335    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   LD                                                                09/23/2021 11:06:40 PAGE 3   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,39 @@
+C51 COMPILER V9.60.0.0   SYSLED                                                            09/25/2021 10:30:55 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE SYSLED
+OBJECT MODULE PLACED IN .\obj\SysLed.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE user\SysLed.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND
+                    - PRINT(.\list\SysLed.lst) TABS(2) OBJECT(.\obj\SysLed.obj)
+
+line level    source
+
+   1          #include "SysLed.h"
+   2          
+   3          void SysLED()
+   4          {
+   5   1        {
+   6   2        static unsigned int SysLED_Count = 0;
+   7   2        SysLED_Count ++;
+   8   2        if(SysLED_Count >= 25)
+   9   2        {
+  10   3          SysLED_Count = 0;
+  11   3          P45 = !P45;
+  12   3        }
+  13   2      }
+  14   1      
+  15   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

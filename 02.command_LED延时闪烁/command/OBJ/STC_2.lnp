@@ -1,0 +1,5 @@
+"..\OBJ\STARTUP.obj",
+"..\OBJ\main.obj",
+"..\OBJ\main1.obj" 
+TO "..\OBJ\STC_2" 
+PRINT("..\LIST\STC_2.m51")

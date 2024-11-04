@@ -1,0 +1,139 @@
+C51 COMPILER V9.52.0.0   KEY                                                               09/27/2021 19:49:08 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\obj\KEY.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\KEY.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\KEY.ls
+                    -t) TABS(2) OBJECT(.\obj\KEY.obj)
+
+line level    source
+
+   1          #include "KEY.h"
+   2          
+   3          volatile bit trigger_KEY_control;   //按键检测总变量
+   4          volatile bit trigger_KEY1;          //KEY1变量
+   5          volatile bit trigger_KEY2;          //KEY2变量
+   6          
+   7          void KEY1_CHECK()                   //KEY1检查
+   8          {
+   9   1        static unsigned char KEY1_Cnt = 0;
+  10   1        static unsigned char KEY1_Status = 0;
+  11   1        
+  12   1        switch(KEY1_Status)
+  13   1        {
+  14   2          case 0:             //default-mode Check//初始模式检查
+  15   2          if(KEY1 == 0)       //check KEY1 //检测低电平
+  16   2          {
+  17   3            KEY1_Cnt = 0;
+  18   3            KEY1_Status = 1;
+  19   3          }
+  20   2          else                //按住时间是否大于50ms
+  21   2          {
+  22   3            KEY1_Cnt ++;
+  23   3            if(KEY1_Cnt >= 5)
+  24   3            {
+  25   4              KEY1_Cnt = 0;
+  26   4              trigger_KEY1 = 0;
+  27   4            }
+  28   3          }
+  29   2          break;              //function end//语句结束
+  30   2          
+  31   2          case 1:             //去抖
+  32   2          if(KEY1 == 0)
+  33   2          {
+  34   3            KEY1_Cnt++;
+  35   3            if(KEY1_Cnt >= 5)
+  36   3            {
+  37   4              KEY1_Cnt = 0;
+  38   4              trigger_KEY1 = 1;       //KEY1变量改变
+  39   4              trigger_KEY_control = 1;//按键检测总变量改变
+  40   4              KEY1_Status = 2;
+  41   4            }
+  42   3          }
+  43   2          else
+  44   2          {
+  45   3            KEY1_Cnt = 0;
+  46   3            KEY1_Status = 0;
+  47   3          }
+  48   2          break;              //function end//语句结束
+  49   2          
+  50   2          case 2:             //复位KEY1
+  51   2          if(KEY1)
+  52   2          {
+  53   3            KEY1_Cnt = 0;
+  54   3            KEY1_Status =0;
+C51 COMPILER V9.52.0.0   KEY                                                               09/27/2021 19:49:08 PAGE 2   
+
+  55   3          }
+  56   2          break;
+  57   2        }
+  58   1      }
+  59          
+  60          void KEY2_CHECK()                   //KEY2检查
+  61          {
+  62   1        static unsigned char KEY2_Cnt = 0;
+  63   1        static unsigned char KEY2_Status = 0;
+  64   1        
+  65   1        switch(KEY2_Status)
+  66   1        {
+  67   2          case 0:             //default-mode Check//初始模式检查
+  68   2          if(KEY2 == 0)       //check KEY1 //检测低电平
+  69   2          {
+  70   3            KEY2_Cnt = 0;
+  71   3            KEY2_Status = 1;
+  72   3          }
+  73   2          else                //按住时间是否大于50ms
+  74   2          {
+  75   3            KEY2_Cnt ++;
+  76   3            if(KEY2_Cnt >= 5)
+  77   3            {
+  78   4              KEY2_Cnt = 0;
+  79   4              trigger_KEY2 = 0;
+  80   4            }
+  81   3          }
+  82   2          break;              //function end//语句结束
+  83   2          
+  84   2          case 1:             //去抖
+  85   2          if(KEY2 == 0)
+  86   2          {
+  87   3            KEY2_Cnt++;
+  88   3            if(KEY2_Cnt >= 5)
+  89   3            {
+  90   4              KEY2_Cnt = 0;
+  91   4              trigger_KEY2 = 1;       //KEY2变量改变
+  92   4              trigger_KEY_control = 1;//按键检测总变量改变
+  93   4              KEY2_Status = 2;
+  94   4            }
+  95   3          }
+  96   2          else
+  97   2          {
+  98   3            KEY2_Cnt = 0;
+  99   3            KEY2_Status = 0;
+ 100   3          }
+ 101   2          break;              //function end//语句结束
+ 102   2          
+ 103   2          case 2:             //复位KEY1
+ 104   2          if(KEY2)
+ 105   2          {
+ 106   3            KEY2_Cnt = 0;
+ 107   3            KEY2_Status =0;
+ 108   3          }
+ 109   2          break;
+ 110   2        }
+ 111   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    138    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.52.0.0   KEY                                                               09/27/2021 19:49:08 PAGE 3   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      3    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

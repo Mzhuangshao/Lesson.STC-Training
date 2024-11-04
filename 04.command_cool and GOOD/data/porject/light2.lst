@@ -1,0 +1,144 @@
+C51 COMPILER V9.52.0.0   LIGHT2                                                            09/09/2021 08:52:48 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LIGHT2
+OBJECT MODULE PLACED IN ..\obj\light2.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\light2.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(.\ligh
+                    -t2.lst) TABS(2) OBJECT(..\obj\light2.obj)
+
+line level    source
+
+   1          #include "cool.H"
+   2          
+   3          //声明子函数,不写的话程序不认下面的子函数
+   4          void Delay100ms();    //clock 0.1s 0.1秒时钟
+   5          //void Delayx100ms(2);    //clock 0.2s 0.2秒时钟
+   6          //void Delayx100ms(5);    //clock 0.5s 0.5秒时钟
+   7          void Delayx100ms(unsigned char x100ms);
+   8          void light1();        //all lights 0.5s 全部闪三次
+   9          void light2();        //P00 to P07 0.2s 从低到高
+  10          void light3();        //P07 to P00 0.2s 从高到低
+  11          void light4();        //P00 P07 to 0.1s 低到高依次点亮,高到低熄灭
+  12          void light5();        //中间扩散
+  13          unsigned char code light1_Tab[] = {0xff,0x00,0xff,0x00,0xff,0x00,0xff};
+  14          unsigned char code light2_Tab[] = {0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00,0xff};
+  15          unsigned char code light3_Tab[] = {0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01,0x00,0xff};
+  16          unsigned char code light4_Tab[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0
+             -xfe,0xff};
+  17          unsigned char code light5_Tab[] = {0x7e,0x3c,0x18,0x00,0x18,0x3c,0x7e,0xff};
+  18          unsigned char code light_P45[] = {0,1};
+  19          //
+  20          //主函数
+  21          //
+  22          void main(void)
+  23          {
+  24   1        while(1)
+  25   1        {
+  26   2          light2();
+  27   2          light1();
+  28   2          light3();
+  29   2          light1();
+  30   2          light4();
+  31   2          light1();
+  32   2          light5();
+  33   2          light1();
+  34   2          P45 = 0;         //系统提示灯提醒你循环一次了,可以不写
+  35   2          Delayx100ms(6);
+  36   2          P45 = 1;
+  37   2          Delayx100ms(3);
+  38   2        }
+  39   1      }
+  40          //
+  41          //
+  42          //定义子函数
+  43          void light1(void)   //add function-all lights flash 0.5s 全部闪三次
+  44          {
+  45   1        unsigned int i;
+  46   1        i = 7;
+  47   1        while(i>0)
+  48   1        {
+  49   2         P0 = light1_Tab[7-i];
+  50   2         Delayx100ms(3);
+  51   2         i--;
+  52   2        }
+  53   1      }
+C51 COMPILER V9.52.0.0   LIGHT2                                                            09/09/2021 08:52:48 PAGE 2   
+
+  54          void light2(void)   //add function-P00 to P07 0.2s 从低到高
+  55          {
+  56   1        unsigned int i;
+  57   1        for(i=9;i>0;i--)
+  58   1        {
+  59   2          P0 = light2_Tab[9-i];
+  60   2          Delayx100ms(2);
+  61   2        }
+  62   1      }
+  63          void light3(void)   //P07 to P00 0.2s 从高到低
+  64          {
+  65   1       unsigned int i;
+  66   1        for(i=0;i<8;i++)
+  67   1        {
+  68   2          P0 = light3_Tab[i];
+  69   2          Delayx100ms(2);
+  70   2        }
+  71   1      }
+  72          void light4(void)   //P00 P07 to 0.1s 低到高依次点亮,高到低熄灭
+  73          {
+  74   1         unsigned int i;
+  75   1        for(i=16;i>0;i--)
+  76   1        {
+  77   2          P0 = light4_Tab[16-i];
+  78   2          Delayx100ms(2);
+  79   2        }
+  80   1      }
+  81          
+  82          void light5(void)   //中间扩散
+  83          {
+  84   1        unsigned int i;
+  85   1        for(i=0;i<8;i++)
+  86   1        {
+  87   2          P0 = light5_Tab[i];
+  88   2          Delayx100ms(3);
+  89   2        }
+  90   1      }
+  91          
+  92          void Delay100ms()   //add function-clock 0.1s//@11.0592MHz
+  93          {
+  94   1        unsigned char i, j, k;
+  95   1        i = 5;
+  96   1        j = 52;
+  97   1        k = 195;
+  98   1        do
+  99   1        {
+ 100   2          do
+ 101   2          {
+ 102   3            while (--k);
+ 103   3          } while (--j);
+ 104   2        } while (--i);
+ 105   1      }
+ 106          
+ 107          void Delayx100ms(unsigned char x100ms)
+ 108          {
+ 109   1        while(x100ms)
+ 110   1        {
+ 111   2          Delay100ms();
+ 112   2          x100ms --;
+ 113   2        }
+ 114   1      }
+ 115          
+C51 COMPILER V9.52.0.0   LIGHT2                                                            09/09/2021 08:52:48 PAGE 3   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    301    ----
+   CONSTANT SIZE    =     51    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

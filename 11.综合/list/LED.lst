@@ -1,0 +1,148 @@
+C51 COMPILER V9.52.0.0   LED                                                               09/28/2021 10:43:43 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\obj\LED.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\LED.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\LED.ls
+                    -t) TABS(2) OBJECT(.\obj\LED.obj)
+
+line level    source
+
+   1          #include "LED.h"
+   2          
+   3          unsigned char code light4_Tab[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0
+             -xfe,0xff};
+   4          
+   5          void main_LED()                           //P0 main-function//P0Ö÷¿Ø
+   6          {
+   7   1        static unsigned char LED_num = 0;
+   8   1        static bit FREEZE = 0;
+   9   1        
+  10   1        if(trigger_KEY1)
+  11   1        {
+  12   2          trigger_KEY1 = 0;
+  13   2          FREEZE = 0;
+  14   2          LED_num ++;
+  15   2          if(LED_num >= 5)
+  16   2          {
+  17   3            LED_num = 0;
+  18   3            P0 = 0xff;
+  19   3          }
+  20   2        }
+  21   1        if(trigger_KEY2_1)
+  22   1        {
+  23   2          trigger_KEY2_1 = 0;
+  24   2          FREEZE = 1;
+  25   2        }
+  26   1        
+  27   1        if(FREEZE == 0)
+  28   1        {
+  29   2          switch(LED_num)
+  30   2          {
+  31   3            case 1:light1();break;
+  32   3            case 2:light2();break;
+  33   3            case 3:light3();break;
+  34   3            case 4:light4();break;
+  35   3            default:break;
+  36   3          }
+  37   2        }
+  38   1        else
+  39   1        {
+  40   2          P0 = 0xff;
+  41   2        }
+  42   1      }
+  43          void light1()
+  44          {
+  45   1        static unsigned int COUNT = 0;
+  46   1        static bit trigger = 0;
+  47   1          COUNT ++;
+  48   1        if(COUNT >= 50)
+  49   1        {
+  50   2          COUNT = 0;
+  51   2          trigger = !trigger;
+  52   2        }
+  53   1        if(trigger)
+C51 COMPILER V9.52.0.0   LED                                                               09/28/2021 10:43:43 PAGE 2   
+
+  54   1        {
+  55   2          P0 = 0xaa;
+  56   2        }
+  57   1        else 
+  58   1        {
+  59   2          P0 = 0x55;
+  60   2        }
+  61   1      }
+  62          void light2()
+  63          {
+  64   1        static unsigned int COUNT = 0;
+  65   1        static bit trigger = 0;
+  66   1          COUNT ++;
+  67   1        if(COUNT >= 50)
+  68   1        {
+  69   2          COUNT = 0;
+  70   2          trigger = !trigger;
+  71   2        }
+  72   1        if(trigger)
+  73   1        {
+  74   2          P0 = 0xcc;
+  75   2        }
+  76   1        else 
+  77   1        {
+  78   2          P0 = 0x33;
+  79   2        }
+  80   1      }
+  81          void light3()
+  82          {
+  83   1        static unsigned int COUNT = 0;
+  84   1        static bit trigger = 0;
+  85   1          COUNT ++;
+  86   1        if(COUNT >= 8)
+  87   1        {
+  88   2          COUNT = 0;
+  89   2          trigger = !trigger;
+  90   2        }
+  91   1        if(trigger)
+  92   1        {
+  93   2          P0 = 0x66;
+  94   2        }
+  95   1        else 
+  96   1        {
+  97   2          P0 = 0x99;
+  98   2        }
+  99   1      }
+ 100          void light4()
+ 101          {
+ 102   1        static unsigned int COUNT = 0;
+ 103   1        static unsigned int trigger = 0;
+ 104   1        
+ 105   1          COUNT ++;
+ 106   1        if(COUNT >= 10)
+ 107   1        {
+ 108   2          COUNT = 0;
+ 109   2          trigger ++;
+ 110   2          if(trigger >= 15)
+ 111   2          {
+ 112   3            trigger = 0;
+ 113   3          }
+ 114   2        }
+ 115   1        if(trigger)
+C51 COMPILER V9.52.0.0   LED                                                               09/28/2021 10:43:43 PAGE 3   
+
+ 116   1        {
+ 117   2          P0 = light4_Tab[trigger];
+ 118   2        }
+ 119   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    235    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      4    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

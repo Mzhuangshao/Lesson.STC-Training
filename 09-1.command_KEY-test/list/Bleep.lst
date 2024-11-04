@@ -1,0 +1,175 @@
+C51 COMPILER V9.52.0.0   BLEEP                                                             09/27/2021 19:49:08 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE BLEEP
+OBJECT MODULE PLACED IN .\obj\Bleep.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\Bleep.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\Blee
+                    -p.lst) TABS(2) OBJECT(.\obj\Bleep.obj)
+
+line level    source
+
+   1          #include "Bleep.h"
+   2          /*
+   3          ** ???????
+   4          ** ?????,???
+   5          */
+   6          
+   7          void  Bleep_Init(void)
+   8          {
+   9   1        //P37???????
+  10   1        P3M1 &= 0x7f;   //0111 11111 ???,???????
+  11   1        P3M0 |= 0x80;   //1000 00000 ???,???????
+  12   1        
+  13   1        //CON
+  14   1        CCON = 0;                       //???PCA?????
+  15   1                                          //PCA?????
+  16   1                                          //??CF??
+  17   1                                          //????????
+  18   1        CL = 0;                         //??PCA???
+  19   1        CH = 0;
+  20   1        CMOD = 0x00;                    //??PCA??? SysClk/12
+  21   1                                        //??PCA???????
+  22   1        //PCA_PWM0 = 0x00;                //PCA??0???8?PWM
+  23   1        //CCAP0H = CCAP0L = 0x20;         //PWM0?????87.5% ((100H-20H)/100H)
+  24   1        //CCAPM0 = 0x42;                  //PCA??0?8?PWM??
+  25   1      
+  26   1        //PCA_PWM1 = 0x40;                //PCA??1???7?PWM
+  27   1        //CCAP1H = CCAP1L = 0x20;         //PWM1?????75% ((80H-20H)/80H)
+  28   1        //CCAPM1 = 0x42;                  //PCA??1?7?PWM??
+  29   1      
+  30   1        PCA_PWM2 = 0x00;                //PCA??0???8?PWM
+  31   1        CCAP2H = CCAP2L = 125;         //PWM0?????50% 
+  32   1        CCAPM2 = 0x42;                  //PCA??2?8?PWM??
+  33   1      
+  34   1        CR = 1;                         //PCA???????
+  35   1        
+  36   1      }
+  37          
+  38          void  BleepON(void)
+  39          {
+  40   1        //CR = 1;                         //PCA???????
+  41   1        CCAP2H = CCAP2L = 125;         //PWM0?????50% 
+  42   1      }
+  43          
+  44          void  BleepOFF(void)
+  45          {
+  46   1        //CR = 0;                         //PCA???????
+  47   1        CCAP2H = CCAP2L = 255;         //????0%,????? 
+  48   1      }
+  49          
+  50          void  Bleep(void)
+  51          {
+  52   1        static  unsigned int Time100ms_Cnt = 0;   //????,??100ms
+  53   1        
+  54   1        
+C51 COMPILER V9.52.0.0   BLEEP                                                             09/27/2021 19:49:08 PAGE 2   
+
+  55   1        if(trigger_KEY_control)
+  56   1        {
+  57   2          BleepON();//P37 = !P37;
+  58   2          Time100ms_Cnt ++;
+  59   2          if(Time100ms_Cnt >= 100)
+  60   2          {
+  61   3            Time100ms_Cnt = 0;
+  62   3            trigger_KEY_control = 0;
+  63   3            P37 = 0;
+  64   3          }
+  65   2        }
+  66   1        else
+  67   1        {
+  68   2          BleepOFF();
+  69   2          Time100ms_Cnt = 0;  
+  70   2        }
+  71   1      
+  72   1      }
+  73          
+  74          
+  75          
+  76          /*
+  77          **???????????????,??????????????,??????????
+  78          **???????????,???????IO????????,?????IO???0——????????
+  79          **???,?????IO?????,??PCA?????,?CCP2
+  80          **????????PWM??????,?????????,??????,so,?????????????
+  81          
+  82          
+  83          */
+  84          /*void Bleep(void)
+  85          {
+  86            static unsigned int Time100ms_Cnt = 0;
+  87            if(trigger_KEY_control)
+  88            {
+  89              P37 = !P37;
+  90              Time100ms_Cnt ++;
+  91              if(Time100ms_Cnt >= 100)
+  92              {
+  93                Time100ms_Cnt = 0;
+  94                trigger_KEY_control = 0;  
+  95              }
+  96            }
+  97            else 
+  98            {
+  99              P37 = 0;
+ 100              trigger_KEY_control = 0;
+ 101            }
+ 102          }
+ 103          
+ 104          //void Bleep_Init()
+ 105          //{
+ 106          //  P3M1 &= 0x7f;
+ 107          //  P3M0 |= 0x80;
+ 108          //  CCON = 0;
+ 109          //  CL = 0;
+ 110          //  CH = 0;
+ 111          //  CMOD =0x00;
+ 112          //  PCA_PWM2 = 0x00;
+ 113          //  CCAP2H = CCAP2L = 125;
+ 114          //  CCAPM2 = 0x42;
+ 115          //  CR = 1;
+ 116          //}
+C51 COMPILER V9.52.0.0   BLEEP                                                             09/27/2021 19:49:08 PAGE 3   
+
+ 117          //void BleepON()
+ 118          //{
+ 119          //  CR = 1;
+ 120          //}
+ 121          //void BleepOFF()
+ 122          //{
+ 123          //  CR = 0;
+ 124          //}
+ 125          //void Bleep()
+ 126          //{
+ 127          //  static unsigned char Count = 0;
+ 128          //  static unsigned char Bleep_Count = 0;
+ 129          //  Count ++;
+ 130          //  if(Count >=20)
+ 131          //  {
+ 132          //    Count = 0;
+ 133          //    Bleep_Count ++;
+ 134          //    if(Bleep_Count >= 5)
+ 135          //    {
+ 136          //      Bleep_Count = 0;
+ 137          //    }
+ 138          //  }
+ 139          //    switch(Bleep_Count)
+ 140          //  {
+ 141          //    case 0:BleepON();break;
+ 142          //    case 1:BleepON();break;
+ 143          //    case 2:BleepOFF();break;
+ 144          //    case 3:BleepOFF();break;
+ 145          //    case 4:BleepOFF();break;
+ 146          //  }
+ 147          //}*/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     85    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

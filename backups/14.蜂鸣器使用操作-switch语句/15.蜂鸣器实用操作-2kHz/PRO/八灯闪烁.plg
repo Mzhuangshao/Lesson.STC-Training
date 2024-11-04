@@ -1,0 +1,23 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\23_–ÌË˜ÃŒ\01.≤Œøº◊ ¡œ\03.∞Àµ∆…¡À∏\PRO\∞Àµ∆…¡À∏.uvproj
+Project File Date:  09/06/2021
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling LED.C...
+..\USER\LED.C(1): warning C318: can't open file 'STC15F.H'
+..\USER\LED.C(27): error C202: 'P0': undefined identifier
+..\USER\LED.C(29): error C202: 'P0': undefined identifier
+Target not created
+Rebuild target 'Target 1'
+assembling STARTUP.A51...
+compiling LED.C...
+linking...
+Program Size: data=9.0 xdata=0 code=42
+creating hex file from "..\OBJ\∞Àµ∆…¡À∏"...
+"..\OBJ\∞Àµ∆…¡À∏" - 0 Error(s), 0 Warning(s).

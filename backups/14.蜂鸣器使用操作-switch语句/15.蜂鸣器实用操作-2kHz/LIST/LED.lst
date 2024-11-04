@@ -1,0 +1,103 @@
+C51 COMPILER V9.52.0.0   LED                                                               09/23/2021 11:08:24 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN ..\OBJ\LED.obj
+COMPILER INVOKED BY: C:\Keil_V4\C51\BIN\C51.EXE ..\USER\LED.C BROWSE DEBUG OBJECTEXTEND PRINT(..\LIST\LED.lst) TABS(2) O
+                    -BJECT(..\OBJ\LED.obj)
+
+line level    source
+
+   1          #include "STC15F.H"
+   2          
+   3          void  Beep_Init(void)
+   4          {
+   5   1        P3M1 &= 0x7f;
+   6   1        P3M0 |= 0x80;
+   7   1        CCON = 0;
+   8   1        
+   9   1        CL = 0;
+  10   1        CH = 0;
+  11   1        CMOD = 0x00;
+  12   1        PCA_PWM2 = 0x00;
+  13   1        CCAP2H = CCAP2L = 125;
+  14   1        CCAPM2 = 0x42;
+  15   1        
+  16   1        CR  = 1;
+  17   1      }
+  18          
+  19          void  Beep_ON(void)
+  20          {
+  21   1        CR = 1;
+  22   1      }
+  23          
+  24          void  Beep_OFF(void)
+  25          {
+  26   1         CR = 0;
+  27   1      }
+  28          
+  29          void Delay200ms()   //@11.0592MHz
+  30          {
+  31   1        unsigned char i, j, k;
+  32   1      
+  33   1        i = 9;
+  34   1        j = 104;
+  35   1        k = 139;
+  36   1        do
+  37   1        {
+  38   2          do
+  39   2          {
+  40   3            while (--k);
+  41   3          } while (--j);
+  42   2        } while (--i);
+  43   1      }
+  44          
+  45          
+  46          void Delay800ms()   //@11.0592MHz
+  47          {
+  48   1        unsigned char i, j, k;
+  49   1      
+  50   1        i = 34;
+  51   1        j = 159;
+  52   1        k = 59;
+  53   1        do
+  54   1        {
+C51 COMPILER V9.52.0.0   LED                                                               09/23/2021 11:08:24 PAGE 2   
+
+  55   2          do
+  56   2          {
+  57   3            while (--k);
+  58   3          } while (--j);
+  59   2        } while (--i);
+  60   1      }
+  61          
+  62          
+  63          void main(void)    
+  64          {
+  65   1          Beep_Init();
+  66   1        
+  67   1          while(1)
+  68   1          {
+  69   2           Beep_ON();
+  70   2           Delay200ms();
+  71   2           Beep_OFF();
+  72   2           Delay800ms();  
+  73   2            
+  74   2          } 
+  75   1      }
+  76            
+  77                                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     78    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

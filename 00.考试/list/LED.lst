@@ -1,0 +1,138 @@
+C51 COMPILER V9.52.0.0   LED                                                               12/27/2021 11:00:02 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN ..\obj\LED.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\LED.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\L
+                    -ED.lst) TABS(2) OBJECT(..\obj\LED.obj)
+
+line level    source
+
+   1          #include "LED.h"        //P0-LED头文件
+   2          
+   3          unsigned char code light2_Tab[] = {0xff,0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00,0xff};
+   4          unsigned char code light3_Tab[] = {0xff,0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01,0x00,0xff};
+   5          unsigned char code light4_Tab[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0
+             -xfe,0xff};
+   6          unsigned char code light5_Tab[] = {0x7e,0x3c,0x18,0x00,0x18,0x3c,0x7e,0xff};
+   7          
+   8          void main_LED()//P0 main-function//P0主控
+   9          {
+  10   1        static unsigned char LED_num = 0;
+  11   1        if(trigger_KEY1)    //KEY1 trigger Check//按键1触发检测
+  12   1        {
+  13   2          trigger_KEY1 = 0;
+  14   2          LED_num ++;
+  15   2          if(LED_num >= 5)  //reset count//重置计数器
+  16   2          {
+  17   3            LED_num = 1;
+  18   3            P0 = 0xff;
+  19   3          }
+  20   2        }
+  21   1        switch(LED_num)   //
+  22   1        {
+  23   2          case 1:light1();break;    //mode-I
+  24   2          case 2:light2();break;    //mode-II
+  25   2          case 3:light3();break;    //mode-II
+  26   2          case 4:light4();break;    //mode-IV
+  27   2          default:break;
+  28   2        }
+  29   1      }
+  30          
+  31          void light1()//mode-I   //模式1
+  32          {
+  33   1        static unsigned int COUNT = 0;
+  34   1        static bit trigger = 0;
+  35   1          COUNT ++;
+  36   1        if(COUNT >= 30)
+  37   1        {
+  38   2          COUNT = 0;
+  39   2          trigger = !trigger;
+  40   2        }
+  41   1        if(trigger)
+  42   1        {
+  43   2          P0 = 0xaa;
+  44   2        }
+  45   1        else 
+  46   1        {
+  47   2          P0 = 0x55;
+  48   2        }
+  49   1      }
+  50          void light2()//mode-II  //模式2
+  51          {
+  52   1        static unsigned int COUNT = 0;
+  53   1        static unsigned int trigger = 0;
+C51 COMPILER V9.52.0.0   LED                                                               12/27/2021 11:00:02 PAGE 2   
+
+  54   1        
+  55   1          COUNT ++;
+  56   1        if(COUNT >= 30)
+  57   1        {
+  58   2          COUNT = 0;
+  59   2          trigger ++;
+  60   2          if(trigger >= 9)
+  61   2          {
+  62   3            trigger = 0;
+  63   3          }
+  64   2        }
+  65   1        if(trigger)
+  66   1        {
+  67   2          P0 = light2_Tab[trigger];
+  68   2        }
+  69   1      }
+  70          void light3()//mode-III //模式3
+  71          {
+  72   1        static unsigned int COUNT = 0;
+  73   1        static unsigned int trigger = 0;
+  74   1        
+  75   1          COUNT ++;
+  76   1        if(COUNT >= 30)
+  77   1        {
+  78   2          COUNT = 0;
+  79   2          trigger ++;
+  80   2          if(trigger >= 9)
+  81   2          {
+  82   3            trigger = 0;
+  83   3          }
+  84   2        }
+  85   1        if(trigger)
+  86   1        {
+  87   2          P0 = light3_Tab[trigger];
+  88   2        }
+  89   1      }
+  90          void light4()//mode-IV  //模式4
+  91          {
+  92   1        static unsigned int COUNT = 0;
+  93   1        static unsigned int trigger = 0;
+  94   1        
+  95   1          COUNT ++;
+  96   1        if(COUNT >= 30)
+  97   1        {
+  98   2          COUNT = 0;
+  99   2          trigger ++;
+ 100   2          if(trigger >= 15)
+ 101   2          {
+ 102   3            trigger = 0;
+ 103   3          }
+ 104   2        }
+ 105   1        if(trigger)
+ 106   1        {
+ 107   2          P0 = light4_Tab[trigger];
+ 108   2        }
+ 109   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    282    ----
+   CONSTANT SIZE    =     44    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   LED                                                               12/27/2021 11:00:02 PAGE 3   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     15    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

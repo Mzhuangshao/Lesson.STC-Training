@@ -1,0 +1,42 @@
+C51 COMPILER V9.52.0.0   LIGHT                                                             09/24/2021 10:33:54 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LIGHT
+OBJECT MODULE PLACED IN ..\OBJ\light.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\light.c OPTIMIZE(0,SPEED) BROWSE INCDIR(..\USER) DEBUG OBJECTEX
+                    -TEND PRINT(..\LIST\light.lst) TABS(2) OBJECT(..\OBJ\light.obj)
+
+line level    source
+
+   1          //#include "light.H"//包含头文件，流水灯有关
+   2          
+   3          
+   4          //  
+   5          //  
+   6          //void light_Display (void)
+   7          //{
+   8          //  static unsigned char Time200ms_Cnt = 0;
+   9          //  Time200ms_Cnt ++;
+  10          //  if(Time200ms_Cnt >=20)
+  11          //  {
+  12          //    Time200ms_Cnt = 0;  
+  13          //    P0 = 0x7e;
+  14          //  }
+  15          //  
+  16          //   
+  17          //  
+  18          //}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

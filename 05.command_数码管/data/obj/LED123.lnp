@@ -1,0 +1,4 @@
+"..\obj\STARTUP.obj",
+"..\obj\LED3.obj" 
+TO "..\obj\LED123" 
+PRINT("..\list\LED123.m51")

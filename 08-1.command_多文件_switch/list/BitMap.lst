@@ -1,0 +1,189 @@
+C51 COMPILER V9.60.0.0   BITMAP                                                            09/25/2021 10:30:55 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE BITMAP
+OBJECT MODULE PLACED IN .\obj\BitMap.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE user\BitMap.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND
+                    - PRINT(.\list\BitMap.lst) TABS(2) OBJECT(.\obj\BitMap.obj)
+
+line level    source
+
+   1          #include "BitMap.h"
+   2          
+   3          static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//空心
+   4          static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//实心
+   5          static unsigned char code NUM0[] = {0x0e,0x11,0x13,0x15,0x19,0x11,0x0e,0x00};
+   6          static unsigned char code NUM1[] = {0x04,0x0c,0x04,0x04,0x04,0x04,0x1f,0x00};
+   7          static unsigned char code NUM2[] = {0x0e,0x11,0x01,0x06,0x08,0x10,0x1f,0x00};
+   8          static unsigned char code NUM3[] = {0x0e,0x11,0x01,0x06,0x01,0x11,0x0e,0x00};
+   9          static unsigned char code NUM4[] = {0x03,0x05,0x09,0x11,0x1f,0x01,0x01,0x00};
+  10          static unsigned char code NUM5[] = {0x1f,0x10,0x1e,0x01,0x01,0x11,0x0e,0x00};
+  11          static unsigned char code NUM6[] = {0x0e,0x11,0x10,0x1e,0x11,0x11,0x0e,0x00};
+  12          static unsigned char code NUM7[] = {0x1f,0x11,0x01,0x02,0x04,0x04,0x04,0x00};
+  13          static unsigned char code NUM8[] = {0x0e,0x11,0x11,0x0e,0x11,0x11,0x0e,0x00};
+  14          static unsigned char code NUM9[] = {0x0e,0x11,0x11,0x0f,0x01,0x02,0x0c,0x00};
+  15          volatile unsigned int BitMapTab[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
+  16          
+  17          
+  18          void BitMap_Display()   
+  19          {
+  20   1        static unsigned char accept_count = 0;
+  21   1        BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+  22   1        accept_count++;
+  23   1        if(accept_count > 8)
+  24   1        {
+  25   2          accept_count = 1;
+  26   2        }
+  27   1        P2 = BitMapTab[accept_count - 1];
+  28   1        switch(accept_count)
+  29   1        {
+  30   2          case 1:BitMap1 = 1;break;
+  31   2          case 2:BitMap2 = 1;break;
+  32   2          case 3:BitMap3 = 1;break;
+  33   2          case 4:BitMap4 = 1;break;
+  34   2          case 5:BitMap5 = 1;break;
+  35   2          case 6:BitMap6 = 1;break;
+  36   2          case 7:BitMap7 = 1;break;
+  37   2          case 8:BitMap8 = 1;break;
+  38   2          default:break;
+  39   2        }
+  40   1      }
+  41          void BitMap()
+  42          {
+  43   1        static unsigned int COUNT_BM = 0;
+  44   1               unsigned char i ;
+  45   1        static unsigned trigger_BM = 0;
+  46   1          COUNT_BM++;
+  47   1      if(COUNT_BM >= 1000)
+  48   1      {
+  49   2        COUNT_BM = 0;
+  50   2        trigger_BM ++;
+  51   2      }
+  52   1        switch(trigger_BM)
+  53   1        {
+  54   2            //BieMap Show Number-0
+C51 COMPILER V9.60.0.0   BITMAP                                                            09/25/2021 10:30:55 PAGE 2   
+
+  55   2          case 0:
+  56   2          for(i=0;i<8;i++)                  
+  57   2          {
+  58   3          BitMapTab[i] = ~NUM0[i] ;
+  59   3          }
+  60   2          break;
+  61   2            //BieMap Show Number-1
+  62   2          case 1:
+  63   2          for(i=0;i<8;i++)                  
+  64   2          {
+  65   3          BitMapTab[i] = ~NUM1[i] ;
+  66   3          }
+  67   2          break;
+  68   2            //BieMap Show Number-2
+  69   2          case 2:
+  70   2          for(i=0;i<8;i++)                  
+  71   2          {
+  72   3          BitMapTab[i] = ~NUM2[i] ;
+  73   3          }
+  74   2          break;
+  75   2            //BieMap Show Number-3
+  76   2          case 3:
+  77   2          for(i=0;i<8;i++)                  
+  78   2          {
+  79   3          BitMapTab[i] = ~NUM3[i] ;
+  80   3          }
+  81   2          break;
+  82   2           //BieMap Show Number-4
+  83   2          case 4:
+  84   2          for(i=0;i<8;i++)                  
+  85   2          {
+  86   3          BitMapTab[i] = ~NUM4[i] ;
+  87   3          }
+  88   2          break;
+  89   2            //BieMap Show Number-5
+  90   2          case 5:
+  91   2          for(i=0;i<8;i++)                  
+  92   2          {
+  93   3          BitMapTab[i] = ~NUM5[i] ;
+  94   3          }
+  95   2          break;
+  96   2            //BieMap Show Number-6
+  97   2          case 6:
+  98   2          for(i=0;i<8;i++)                  
+  99   2          {
+ 100   3          BitMapTab[i] = ~NUM6[i] ;
+ 101   3          }
+ 102   2          break;
+ 103   2            //BieMap Show Number-7
+ 104   2          case 7:
+ 105   2          for(i=0;i<8;i++)                  
+ 106   2          {
+ 107   3          BitMapTab[i] = ~NUM7[i] ;
+ 108   3          }
+ 109   2          break;
+ 110   2            //BieMap Show Number-8
+ 111   2          case 8:
+ 112   2          for(i=0;i<8;i++)                  
+ 113   2          {
+ 114   3          BitMapTab[i] = ~NUM8[i] ;
+ 115   3          }
+ 116   2          break;
+C51 COMPILER V9.60.0.0   BITMAP                                                            09/25/2021 10:30:55 PAGE 3   
+
+ 117   2            //BieMap Show Number-9
+ 118   2          case 9:
+ 119   2          for(i=0;i<8;i++)                  
+ 120   2          {
+ 121   3          BitMapTab[i] = ~NUM9[i] ;
+ 122   3          }
+ 123   2          break;
+ 124   2          //BieMap-Count reset to 0
+ 125   2          case 10:trigger_BM = 0;break;
+ 126   2          default:break;
+ 127   2        }
+ 128   1      }
+ 129          
+ 130          void BitMap_Init()  //推挽输出
+ 131          {
+ 132   1        P2M1 &= 0x00;
+ 133   1        P2M0 |= 0xff;
+ 134   1        
+ 135   1        P3M1 &= 0xfb;
+ 136   1        P3M0 |= 0x04;
+ 137   1        
+ 138   1        P4M1 &= 0xfd;
+ 139   1        P4M0 |= 0x02;
+ 140   1        
+ 141   1        P3M1 &= 0xf7;
+ 142   1        P3M0 |= 0x08;
+ 143   1        
+ 144   1        P3M1 &= 0xbf;
+ 145   1        P3M0 |= 0x40;
+ 146   1        
+ 147   1        P4M1 &= 0xef;
+ 148   1        P4M0 |= 0x10;
+ 149   1        
+ 150   1        P3M1 &= 0xef;
+ 151   1        P3M0 |= 0x10;
+ 152   1        
+ 153   1        P4M1 &= 0xfb;
+ 154   1        P4M0 |= 0x04;
+ 155   1        
+ 156   1        P3M1 &= 0xdf;
+ 157   1        P3M0 |= 0x20;
+ 158   1        
+ 159   1        P2 = 0x00;
+ 160   1        BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+ 161   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    661    ----
+   CONSTANT SIZE    =     96    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

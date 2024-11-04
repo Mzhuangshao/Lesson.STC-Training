@@ -1,0 +1,9 @@
+".\obj\STARTUP.obj",
+".\obj\main.obj",
+".\obj\timer.obj",
+".\obj\SysLed.obj",
+".\obj\BitMap.obj",
+".\obj\Bleep.obj",
+".\obj\P0.obj" 
+TO ".\obj\muilt" 
+PRINT(".\list\muilt.m51")

@@ -1,0 +1,4 @@
+"..\OBJ\STARTUP.obj",
+"..\OBJ\LED.obj" 
+TO "..\OBJ\高低交替闪烁" 
+PRINT("..\LIST\高低交替闪烁.m51")

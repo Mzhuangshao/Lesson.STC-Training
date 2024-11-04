@@ -1,0 +1,78 @@
+C51 COMPILER V9.52.0.0   UART                                                              09/25/2021 21:03:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN .\obj\Uart.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE user\Uart.c BROWSE INCDIR(.\user) DEBUG OBJECTEXTEND PRINT(.\list\Uart.
+                    -lst) TABS(2) OBJECT(.\obj\Uart.obj)
+
+line level    source
+
+   1          #include "Uart.h"
+   2          
+   3          volatile unsigned char Uart_Val = 0;
+   4          static bit WORKING = 0;
+   5          
+   6          void Send_Data(unsigned char dat);
+   7          void SendMsg(char *s);
+   8          
+   9          void UartInit(void)   //9600bps@11.0592MHz
+  10          {
+  11   1        SCON = 0x50;  
+  12   1        AUXR |= 0x01;
+  13   1        AUXR &= 0xFB; 
+  14   1        T2L = 0xE8; 
+  15   1        T2H = 0xFF;
+  16   1        AUXR |= 0x10; 
+  17   1        
+  18   1        ES = 1;
+  19   1        EA = 1;
+  20   1        
+  21   1        //SendMag("STC15F2K60S2\r\n READY \r\n ESM \r\n");
+  22   1      }
+  23          
+  24          void Uart(void) interrupt 4
+  25          {
+  26   1        if(RI)
+  27   1        {
+  28   2          RI = 0;
+  29   2          P0 = SBUF;
+  30   2          Uart_Val = SBUF;
+  31   2        }
+  32   1        if(TI)
+  33   1        {
+  34   2          TI = 0;
+  35   2          WORKING = 0;
+  36   2        }
+  37   1      }
+  38          
+  39          void Send_Data(unsigned char dat)
+  40          {
+  41   1        while(WORKING);
+  42   1        WORKING = 1;
+  43   1        SBUF = dat;
+  44   1      }
+  45          
+  46          void SendMsg(char *s)
+  47          {
+  48   1        while(*s)
+  49   1        {
+  50   2          Send_Data(*s++);
+  51   2        }
+  52   1      }
+
+
+C51 COMPILER V9.52.0.0   UART                                                              09/25/2021 21:03:23 PAGE 2   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     87    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

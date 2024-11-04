@@ -1,0 +1,137 @@
+C51 COMPILER V9.52.0.0   XYZ2                                                              09/14/2021 20:34:14 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE XYZ2
+OBJECT MODULE PLACED IN ..\obj\xyz2.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\xyz2.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\
+                    -xyz2.lst) TABS(2) OBJECT(..\obj\xyz2.obj)
+
+line level    source
+
+   1          #include "data.H"
+   2          
+   3          sbit BitMap1 = P3^2;  //P32
+   4          sbit BitMap2 = P4^1;  //P41
+   5          sbit BitMap3 = P3^3;  //P33
+   6          sbit BitMap4 = P3^6;  //P36
+   7          sbit BitMap5 = P4^4;  //P44
+   8          sbit BitMap6 = P3^4;  //P34
+   9          sbit BitMap7 = P4^2;  //P42
+  10          sbit BitMap8 = P3^5;  //P35
+  11          unsigned int code BM1_Tab[] = {0x00,0x42,0x5a,0x66};
+  12          void BitMap_Init();
+  13          void Delay200ms();
+  14          void Delay300ms();
+  15          
+  16          void main(void)
+  17          {
+  18   1        BitMap_Init();
+  19   1       while(1)
+  20   1       {
+  21   2        P2 = BM1_Tab[0];BitMap1 = 1;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMa
+             -p8 = 0;
+  22   2        Delay200ms();
+  23   2        P2 = BM1_Tab[1];BitMap1 = 0;BitMap2 = 1;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMa
+             -p8 = 0;
+  24   2        Delay200ms();
+  25   2        P2 = BM1_Tab[2];BitMap1 = 0;BitMap2 = 0;BitMap3 = 1;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMa
+             -p8 = 0;
+  26   2        Delay200ms();
+  27   2        P2 = BM1_Tab[2];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 1;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMa
+             -p8 = 0;
+  28   2        Delay200ms();
+  29   2        P2 = BM1_Tab[3];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 1;BitMap6 = 0;BitMap7 = 0;BitMa
+             -p8 = 0;
+  30   2        Delay200ms();
+  31   2        P2 = BM1_Tab[2];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 1;BitMap7 = 0;BitMa
+             -p8 = 0;
+  32   2        Delay200ms();
+  33   2        P2 = BM1_Tab[2];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 1;BitMa
+             -p8 = 0;
+  34   2        Delay200ms();
+  35   2        P2 = BM1_Tab[1];BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMa
+             -p8 = 1;
+  36   2        Delay300ms();
+  37   2       }
+  38   1      }
+  39          
+  40          void BitMap_Init()  //ÍÆÍìÊä³ö
+  41          {
+  42   1        P2M1 = 0x00;
+  43   1        P2M0 = 0xff;
+  44   1        
+  45   1        P3M1 &= 0xfb;
+  46   1        P3M0 |= 0x04;
+C51 COMPILER V9.52.0.0   XYZ2                                                              09/14/2021 20:34:14 PAGE 2   
+
+  47   1        
+  48   1        P4M1 &= 0xfd;
+  49   1        P4M0 |= 0x02;
+  50   1        
+  51   1        P3M1 &= 0xf7;
+  52   1        P3M0 |= 0x08;
+  53   1        
+  54   1        P3M1 &= 0xbf;
+  55   1        P3M0 |= 0x40;
+  56   1        
+  57   1        P4M1 &= 0xef;
+  58   1        P4M0 |= 0x10;
+  59   1        
+  60   1        P3M1 &= 0xef;
+  61   1        P3M0 |= 0x10;
+  62   1        
+  63   1        P4M1 &= 0xfb;
+  64   1        P4M0 |= 0x04;
+  65   1        
+  66   1        P3M1 &= 0xdf;
+  67   1        P3M0 |= 0x20;
+  68   1        
+  69   1        P2 = 0x00;
+  70   1        BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
+  71   1      }
+  72          
+  73          //
+  74          void Delay200ms()   //@11.0592MHz   //@11.0592MHz
+  75          {
+  76   1        unsigned char i, j;
+  77   1      
+  78   1        i = 3;
+  79   1        j = 35;
+  80   1        do
+  81   1        {
+  82   2          while (--j);
+  83   2        } while (--i);
+  84   1      }
+  85          
+  86          void Delay300ms()   //@11.0592MHz
+  87          {
+  88   1        unsigned char i, j, k;
+  89   1      
+  90   1        i = 13;
+  91   1        j = 156;
+  92   1        k = 83;
+  93   1        do
+  94   1        {
+  95   2          do
+  96   2          {
+  97   3            while (--k);
+  98   3          } while (--j);
+  99   2        } while (--i);
+ 100   1      }
+ 101          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    277    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.52.0.0   XYZ2                                                              09/14/2021 20:34:14 PAGE 3   
+
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

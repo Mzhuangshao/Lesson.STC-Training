@@ -1,0 +1,9 @@
+"..\OBJ\STARTUP.obj",
+"..\OBJ\main.obj",
+"..\OBJ\Timer.obj",
+"..\OBJ\SysLed.obj",
+"..\OBJ\Buzzer.obj",
+"..\OBJ\DotLed.obj",
+"..\OBJ\LD.obj" 
+TO "..\OBJ\STC15_PRO" 
+PRINT("..\LIST\STC15_PRO.m51")

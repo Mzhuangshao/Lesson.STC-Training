@@ -1,0 +1,77 @@
+C51 COMPILER V9.52.0.0   MAIN                                                              09/24/2021 14:48:19 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\OBJ\main.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\main.c OPTIMIZE(0,SPEED) BROWSE INCDIR(..\USER) DEBUG OBJECTEXT
+                    -END PRINT(..\LIST\main.lst) TABS(2) OBJECT(..\OBJ\main.obj)
+
+line level    source
+
+   1          #include "Timer.H"//包含头定时头文件
+   2          
+   3          #include "Sysled.H"//包含系统灯头文件
+   4          
+   5          #include "Buzzer.H"//包含蜂鸣器头文件
+   6          
+   7          #include "Dotled.H"//包含头文件，点阵有关；
+   8          
+   9          #include "ben.H"
+  10          
+  11          #include "rad.H"  
+  12          
+  13          //主函数
+  14          void main (void)
+  15          {
+  16   1        Timer0Init();
+  17   1        Timer1Init();
+  18   1        DotLed_Init();
+  19   1        K1_Check();
+  20   1        K2_Check();
+  21   1      
+  22   1        while(1)
+  23   1        {
+  24   2          //一秒
+  25   2          if(Flag_1ms)//一秒时间到
+  26   2          {
+  27   3            Flag_1ms = 0;//复位一秒时间标志，等待下一个一秒时间到
+  28   3            
+  29   3            Beep_Inte();
+  30   3            DotLed_Display();
+  31   3            
+  32   3            
+  33   3          }
+  34   2          //十秒
+  35   2          if(Flag_10ms)//一秒时间到
+  36   2          {
+  37   3            Flag_10ms = 0;//复位10秒时间标志，等待下一个一秒时间到
+  38   3            
+  39   3            Sysled_Display();//调用系统灯显示函数 
+  40   3            DotLed_new();
+  41   3            ben_Mode1();
+  42   3            K1_Check();
+  43   3            K2_Check();
+  44   3      
+  45   3          }
+  46   2      
+  47   2          
+  48   2          
+  49   2        }
+  50   1        
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.52.0.0   MAIN                                                              09/24/2021 14:48:19 PAGE 2   
+
+   CODE SIZE        =     49    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

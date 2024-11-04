@@ -1,0 +1,85 @@
+C51 COMPILER V9.52.0.0   SYSLED                                                            09/24/2021 14:48:19 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SYSLED
+OBJECT MODULE PLACED IN ..\OBJ\Sysled.obj
+COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\USER\Sysled.c OPTIMIZE(0,SPEED) BROWSE INCDIR(..\USER) DEBUG OBJECTE
+                    -XTEND PRINT(..\LIST\Sysled.lst) TABS(2) OBJECT(..\OBJ\Sysled.obj)
+
+line level    source
+
+   1          #include "Sysled.H"//包含头文件，系统灯有关4                                                              
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                                        
+             -                                                                                                         
+   2          
+   3          
+   4          
+   5          //系统灯，频率1hz，既0.5亮，0.5灭
+   6          void Sysled_Display(void)
+   7          {
+   8   1        static unsigned char Time500ms_Cnt = 0;//用于计算500ms的时间变量，计50个即可
+   9   1        Time500ms_Cnt ++;
+  10   1        if(Time500ms_Cnt >=50)
+  11   1        {
+  12   2          Time500ms_Cnt = 0;
+  13   2          
+C51 COMPILER V9.52.0.0   SYSLED                                                            09/24/2021 14:48:19 PAGE 2   
+
+  14   2          P45 = !P45;//系统灯取反
+  15   2        }
+  16   1        
+  17   1        
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     15    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
