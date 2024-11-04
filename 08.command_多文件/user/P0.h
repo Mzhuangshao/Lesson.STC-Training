@@ -12,11 +12,11 @@ unsigned char code light4_Tab[];
 //extern volatile unsigned char lightCount ;
 
 void nor_LED();
-//void light1();        //all lights 0.5s È«²¿ÉÁÈı´Î
-//void light2();        //P00 to P07 0.2s ´ÓµÍµ½¸ß
-//void light3();        //P07 to P00 0.2s ´Ó¸ßµ½µÍ
-//void light4();        //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãğ
-//void light5();        //ÖĞ¼äÀ©É¢
+//void light1();        //all lights 0.5s å…¨éƒ¨é—ªä¸‰æ¬¡
+//void light2();        //P00 to P07 0.2s ä»ä½åˆ°é«˜
+//void light3();        //P07 to P00 0.2s ä»é«˜åˆ°ä½
+//void light4();        //P00 P07 to 0.1s ä½åˆ°é«˜ä¾æ¬¡ç‚¹äº®,é«˜åˆ°ä½ç†„ç­
+//void light5();        //ä¸­é—´æ‰©æ•£
 
 
 #endif

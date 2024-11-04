@@ -1,14 +1,14 @@
 #include "data.H"
 
-void Delay100ms();    //clock 0.1s 0.1ÃëÊ±ÖÓ
-//void Delayx100ms(2);    //clock 0.2s 0.2ÃëÊ±ÖÓ
-//void Delayx100ms(5);    //clock 0.5s 0.5ÃëÊ±ÖÓ
+void Delay100ms();    //clock 0.1s 0.1ç§’æ—¶é’Ÿ
+//void Delayx100ms(2);    //clock 0.2s 0.2ç§’æ—¶é’Ÿ
+//void Delayx100ms(5);    //clock 0.5s 0.5ç§’æ—¶é’Ÿ
 void Delayx100ms(unsigned char x100ms);
-void light1();        //all lights 0.5s È«²¿ÉÁÈý´Î
-void light2();        //P00 to P07 0.2s ´ÓµÍµ½¸ß
-void light3();        //P07 to P00 0.2s ´Ó¸ßµ½µÍ
-void light4();        //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãð
-void light5();        //ÖÐ¼äÀ©É¢
+void light1();        //all lights 0.5s å…¨éƒ¨é—ªä¸‰æ¬¡
+void light2();        //P00 to P07 0.2s ä»Žä½Žåˆ°é«˜
+void light3();        //P07 to P00 0.2s ä»Žé«˜åˆ°ä½Ž
+void light4();        //P00 P07 to 0.1s ä½Žåˆ°é«˜ä¾æ¬¡ç‚¹äº®,é«˜åˆ°ä½Žç†„ç­
+void light5();        //ä¸­é—´æ‰©æ•£
 unsigned char code light1_Tab[] = {0xff,0x00,0xff,0x00,0xff,0x00,0xff};
 unsigned char code light2_Tab[] = {0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00,0xff};
 unsigned char code light3_Tab[] = {0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01,0x00,0xff};
@@ -35,7 +35,7 @@ void main(void)
 		light1();
 		light5();
 		light1();
-		/*P45 = 0;         //ÏµÍ³ÌáÊ¾µÆÌáÐÑÄãÑ­»·Ò»´ÎÁË,¿ÉÒÔ²»Ð´
+		/*P45 = 0;         //ç³»ç»Ÿæç¤ºç¯æé†’ä½ å¾ªçŽ¯ä¸€æ¬¡äº†,å¯ä»¥ä¸å†™
 		Delayx100ms(6);
 		P45 = 1;
 		Delayx100ms(3);*/
@@ -63,7 +63,7 @@ void T0_In(void)
 	EA=1;
 }
 
-void light1(void)   //add function-all lights flash 0.5s È«²¿ÉÁÈý´Î
+void light1(void)   //add function-all lights flash 0.5s å…¨éƒ¨é—ªä¸‰æ¬¡
 {
 	unsigned int i;
 	i = 7;
@@ -74,7 +74,7 @@ void light1(void)   //add function-all lights flash 0.5s È«²¿ÉÁÈý´Î
 	 i--;
 	}
 }
-void light2(void)   //add function-P00 to P07 0.2s ´ÓµÍµ½¸ß
+void light2(void)   //add function-P00 to P07 0.2s ä»Žä½Žåˆ°é«˜
 {
   unsigned int i;
 	for(i=9;i>0;i--)
@@ -83,7 +83,7 @@ void light2(void)   //add function-P00 to P07 0.2s ´ÓµÍµ½¸ß
 		Delayx100ms(2);
 	}
 }
-void light3(void)   //P07 to P00 0.2s ´Ó¸ßµ½µÍ
+void light3(void)   //P07 to P00 0.2s ä»Žé«˜åˆ°ä½Ž
 {
  unsigned int i;
 	for(i=0;i<8;i++)
@@ -92,7 +92,7 @@ void light3(void)   //P07 to P00 0.2s ´Ó¸ßµ½µÍ
 		Delayx100ms(2);
 	}
 }
-void light4(void)   //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãð
+void light4(void)   //P00 P07 to 0.1s ä½Žåˆ°é«˜ä¾æ¬¡ç‚¹äº®,é«˜åˆ°ä½Žç†„ç­
 {
 	 unsigned int i;
 	for(i=16;i>0;i--)
@@ -102,7 +102,7 @@ void light4(void)   //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãð
 	}
 }
 
-void light5(void)   //ÖÐ¼äÀ©É¢
+void light5(void)   //ä¸­é—´æ‰©æ•£
 {
 	unsigned int i;
 	for(i=0;i<8;i++)

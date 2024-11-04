@@ -1,17 +1,17 @@
-#include "timer.h"			//¼ÆÊ±Æ÷Í·ÎÄ¼ş
-#include "Bleep.h"			//·äÃùÆ÷Í·ÎÄ¼ş
-#include "BitMap.h"			//µãÕóÍ·ÎÄ¼ş
-#include "SysLed.h"			//P45ÏµÍ³µÆÍ·ÎÄ¼ş
-#include "LED.h"				//P0-LEDÍ·ÎÄ¼ş
-#include "KEY.h"				//°´¼üÍ·ÎÄ¼ş
+#include "timer.h"			//è®¡æ—¶å™¨å¤´æ–‡ä»¶
+#include "Bleep.h"			//èœ‚é¸£å™¨å¤´æ–‡ä»¶
+#include "BitMap.h"			//ç‚¹é˜µå¤´æ–‡ä»¶
+#include "SysLed.h"			//P45ç³»ç»Ÿç¯å¤´æ–‡ä»¶
+#include "LED.h"				//P0-LEDå¤´æ–‡ä»¶
+#include "KEY.h"				//æŒ‰é”®å¤´æ–‡ä»¶
 
-void main(void)									 //main function//Ö÷º¯Êı
+void main(void)									 //main function//ä¸»å‡½æ•°
 {	
-	//²¿·ÖÉèÖÃ³õÊ¼»¯
+	//éƒ¨åˆ†è®¾ç½®åˆå§‹åŒ–
 	BitMap_Init();
 	Bleep_Init();
 	
-	//¶¨Ê±Æ÷ÉèÖÃ³õÊ¼»¯
+	//å®šæ—¶å™¨è®¾ç½®åˆå§‹åŒ–
 	Timer0Init();
   Timer1Init();
 	while(1)
@@ -19,16 +19,16 @@ void main(void)									 //main function//Ö÷º¯Êı
 		if(trigger_1ms)				       //1ms trigger
 		{
 			trigger_1ms = 0;		 		   //reset trigger
-			KEY1_CHECK(); KEY2_CHECK();//KEY check//°´¼ü¼ì²â
-			BitMap_Display();					 //µãÕóÏÔÊ¾Í¼°¸Ô¤¼ÓÔØ
+			KEY1_CHECK(); KEY2_CHECK();//KEY check//æŒ‰é”®æ£€æµ‹
+			BitMap_Display();					 //ç‚¹é˜µæ˜¾ç¤ºå›¾æ¡ˆé¢„åŠ è½½
 		}
 		if(trigger_10ms)						 //10ms trigger
 		{
 			trigger_10ms = 0;					 //reset trigger
-			SysLED();									 //system-LED flash//P45ÏµÍ³µÆÉÁË¸
-			Bleep();									 //·äÃùÆ÷
-			main_LED();								 //P0-LED×Ü¿Ø
-			main_BitMap();						 //µãÕóÍ¼°¸×Ü¿Ø
+			SysLED();									 //system-LED flash//P45ç³»ç»Ÿç¯é—ªçƒ
+			Bleep();									 //èœ‚é¸£å™¨
+			main_LED();								 //P0-LEDæ€»æ§
+			main_BitMap();						 //ç‚¹é˜µå›¾æ¡ˆæ€»æ§
 		}
 	}
 }

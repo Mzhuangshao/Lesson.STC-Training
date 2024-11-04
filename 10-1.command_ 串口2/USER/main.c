@@ -1,11 +1,11 @@
-#include "Timer.H"		//°üº¬Í·¶¨Ê±Æ÷Í·ÎÄ¼ş
-#include "SysLed.H"		//°üº¬ÏµÍ³µÆÍ·ÎÄ¼ş
+#include "Timer.H"		//åŒ…å«å¤´å®šæ—¶å™¨å¤´æ–‡ä»¶
+#include "SysLed.H"		//åŒ…å«ç³»ç»Ÿç¯å¤´æ–‡ä»¶
 #include "Buzzer.H"	
 #include "DotLed.H"
-#include "LSD.H"      //°üº¬Á÷Ë®µÆÍ·ÎÄ¼ş
+#include "LSD.H"      //åŒ…å«æµæ°´ç¯å¤´æ–‡ä»¶
 #include "Uart.H"
 #include "command.H"
-//Ö÷º¯Êı
+//ä¸»å‡½æ•°
 void	main(void) 
 {
 	Timer0Init();

@@ -1,24 +1,24 @@
-#include "KEY.h"				//°´¼üÍ·ÎÄ¼ş
+#include "KEY.h"				//æŒ‰é”®å¤´æ–‡ä»¶
 
-volatile bit trigger_KEY_control;		//°´¼ü¼ì²â×Ü±äÁ¿
-volatile bit trigger_KEY1;					//KEY1±äÁ¿
-volatile bit trigger_KEY2;					//KEY2±äÁ¿
+volatile bit trigger_KEY_control;		//æŒ‰é”®æ£€æµ‹æ€»å˜é‡
+volatile bit trigger_KEY1;					//KEY1å˜é‡
+volatile bit trigger_KEY2;					//KEY2å˜é‡
 
 
-void KEY1_CHECK()										//KEY1¼ì²é
+void KEY1_CHECK()										//KEY1æ£€æŸ¥
 {
 	static unsigned char KEY1_Cnt = 0;
 	static unsigned char KEY1_Status = 0;
 	
 	switch(KEY1_Status)
 	{
-		case 0:							//default-mode Check//³õÊ¼Ä£Ê½¼ì²é
-		if(KEY1 == 0)				//check KEY1 //¼ì²âµÍµçÆ½
+		case 0:							//default-mode Check//åˆå§‹æ¨¡å¼æ£€æŸ¥
+		if(KEY1 == 0)				//check KEY1 //æ£€æµ‹ä½ç”µå¹³
 		{
 			KEY1_Cnt = 0;
 			KEY1_Status = 1;
 		}
-		else								//°´×¡Ê±¼äÊÇ·ñ´óÓÚ10ms
+		else								//æŒ‰ä½æ—¶é—´æ˜¯å¦å¤§äº10ms
 		{
 			KEY1_Cnt ++;
 			if(KEY1_Cnt >= 10)
@@ -27,17 +27,17 @@ void KEY1_CHECK()										//KEY1¼ì²é
 				trigger_KEY1 = 0;
 			}
 		}
-		break;							//function end//Óï¾ä½áÊø
+		break;							//function end//è¯­å¥ç»“æŸ
 		
-		case 1:							//È¥¶¶
+		case 1:							//å»æŠ–
 		if(KEY1 == 0)
 		{
 			KEY1_Cnt++;
 			if(KEY1_Cnt >= 20)
 			{
 				KEY1_Cnt = 0;
-				trigger_KEY1 = 1;				//KEY1±äÁ¿¸Ä±ä
-				trigger_KEY_control = 1;//°´¼ü¼ì²â×Ü±äÁ¿¸Ä±ä
+				trigger_KEY1 = 1;				//KEY1å˜é‡æ”¹å˜
+				trigger_KEY_control = 1;//æŒ‰é”®æ£€æµ‹æ€»å˜é‡æ”¹å˜
 				KEY1_Status = 2;
 			}
 		}
@@ -46,9 +46,9 @@ void KEY1_CHECK()										//KEY1¼ì²é
 			KEY1_Cnt = 0;
 			KEY1_Status = 0;
 		}
-		break;							//function end//Óï¾ä½áÊø
+		break;							//function end//è¯­å¥ç»“æŸ
 		
-		case 2:							//¸´Î»KEY1
+		case 2:							//å¤ä½KEY1
 		if(KEY1)
 		{
 			KEY1_Cnt = 0;
@@ -58,20 +58,20 @@ void KEY1_CHECK()										//KEY1¼ì²é
 	}
 }
 
-void KEY2_CHECK()										//KEY2¼ì²é
+void KEY2_CHECK()										//KEY2æ£€æŸ¥
 {
 	static unsigned char KEY2_Cnt = 0;
 	static unsigned char KEY2_Status = 0;
 	
 	switch(KEY2_Status)
 	{
-		case 0:							//default-mode Check//³õÊ¼Ä£Ê½¼ì²é
-		if(KEY2 == 0)				//check KEY1 //¼ì²âµÍµçÆ½
+		case 0:							//default-mode Check//åˆå§‹æ¨¡å¼æ£€æŸ¥
+		if(KEY2 == 0)				//check KEY1 //æ£€æµ‹ä½ç”µå¹³
 		{
 			KEY2_Cnt = 0;
 			KEY2_Status = 1;
 		}
-		else								//°´×¡Ê±¼äÊÇ·ñ´óÓÚ10ms
+		else								//æŒ‰ä½æ—¶é—´æ˜¯å¦å¤§äº10ms
 		{
 			KEY2_Cnt ++;
 			if(KEY2_Cnt >= 10)
@@ -80,17 +80,17 @@ void KEY2_CHECK()										//KEY2¼ì²é
 				trigger_KEY2 = 0;
 			}
 		}
-		break;							//function end//Óï¾ä½áÊø
+		break;							//function end//è¯­å¥ç»“æŸ
 		
-		case 1:							//È¥¶¶
+		case 1:							//å»æŠ–
 		if(KEY2 == 0)
 		{
 			KEY2_Cnt++;
 			if(KEY2_Cnt >= 20)
 			{
 				KEY2_Cnt = 0;
-				trigger_KEY2 = 1;				//KEY2±äÁ¿¸Ä±ä
-				trigger_KEY_control = 1;//°´¼ü¼ì²â×Ü±äÁ¿¸Ä±ä
+				trigger_KEY2 = 1;				//KEY2å˜é‡æ”¹å˜
+				trigger_KEY_control = 1;//æŒ‰é”®æ£€æµ‹æ€»å˜é‡æ”¹å˜
 				
 				KEY2_Status = 2;
 			}
@@ -100,9 +100,9 @@ void KEY2_CHECK()										//KEY2¼ì²é
 			KEY2_Cnt = 0;
 			KEY2_Status = 0;
 		}
-		break;							//function end//Óï¾ä½áÊø
+		break;							//function end//è¯­å¥ç»“æŸ
 		
-		case 2:							//¸´Î»KEY1
+		case 2:							//å¤ä½KEY1
 		if(KEY2)
 		{
 			KEY2_Cnt = 0;

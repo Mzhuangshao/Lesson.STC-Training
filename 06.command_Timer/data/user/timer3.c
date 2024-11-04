@@ -45,7 +45,7 @@ void Bleep_Init()
 	P3M0 |= 0x80;
 }
 /*
-void BitMap_Init()  //ÍÆÍìÊä³ö
+void BitMap_Init()  //æ¨æŒ½è¾“å‡º
 {
 	P2M1 &= 0x00;
 	P2M0 |= 0xff;
@@ -78,7 +78,7 @@ void BitMap_Init()  //ÍÆÍìÊä³ö
 	BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
 }*/
 //
-void T0Isr() interrupt 1  //ÖĞ¶Ï·şÎñ ·äÃùÆ÷¿ØÖÆ
+void T0Isr() interrupt 1  //ä¸­æ–­æœåŠ¡ èœ‚é¸£å™¨æ§åˆ¶
 {
 	static unsigned int BleepTimer = 0;
 	 BleepTimer++;
@@ -96,7 +96,7 @@ void T0Isr() interrupt 1  //ÖĞ¶Ï·şÎñ ·äÃùÆ÷¿ØÖÆ
 	 }
 }
 //
-void T1Isr() interrupt 3  //ÖĞ¶Ï·şÎñ P2¿ØÖÆ
+void T1Isr() interrupt 3  //ä¸­æ–­æœåŠ¡ P2æ§åˆ¶
 	{
 	static unsigned int T1Count = 0;
 	static unsigned char Count = 0;
@@ -145,7 +145,7 @@ void T1Isr() interrupt 3  //ÖĞ¶Ï·şÎñ P2¿ØÖÆ
 	}
 }
 //
-void T2Isr() interrupt 12 //ÖĞ¶Ï·şÎñ P45¿ØÖÆ
+void T2Isr() interrupt 12 //ä¸­æ–­æœåŠ¡ P45æ§åˆ¶
 {
 	static unsigned int T2Count = 0;
 	T2Count ++;

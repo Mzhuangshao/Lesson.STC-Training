@@ -1,4 +1,4 @@
-#include "timer.h"			//计时器头文件
+#include "timer.h"			//璁℃椂鍣ㄥご鏂囦欢
 
 volatile bit trigger_1ms = 0, trigger_10ms = 0;
 

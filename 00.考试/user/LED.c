@@ -1,18 +1,18 @@
-#include "LED.h"				//P0-LEDÍ·ÎÄ¼ş
+#include "LED.h"				//P0-LEDå¤´æ–‡ä»¶
 
 unsigned char code light2_Tab[] = {0xff,0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00,0xff};
 unsigned char code light3_Tab[] = {0xff,0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01,0x00,0xff};
 unsigned char code light4_Tab[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xfe,0xff};
 unsigned char code light5_Tab[] = {0x7e,0x3c,0x18,0x00,0x18,0x3c,0x7e,0xff};
 
-void main_LED()//P0 main-function//P0Ö÷¿Ø
+void main_LED()//P0 main-function//P0ä¸»æ§
 {
 	static unsigned char LED_num = 0;
-	if(trigger_KEY1)		//KEY1 trigger Check//°´¼ü1´¥·¢¼ì²â
+	if(trigger_KEY1)		//KEY1 trigger Check//æŒ‰é”®1è§¦å‘æ£€æµ‹
 	{
 		trigger_KEY1 = 0;
 		LED_num ++;
-		if(LED_num >= 5)	//reset count//ÖØÖÃ¼ÆÊıÆ÷
+		if(LED_num >= 5)	//reset count//é‡ç½®è®¡æ•°å™¨
 		{
 			LED_num = 1;
 			P0 = 0xff;
@@ -28,7 +28,7 @@ void main_LED()//P0 main-function//P0Ö÷¿Ø
 	}
 }
 
-void light1()//mode-I		//Ä£Ê½1
+void light1()//mode-I		//æ¨¡å¼1
 {
 	static unsigned int COUNT = 0;
 	static bit trigger = 0;
@@ -47,7 +47,7 @@ void light1()//mode-I		//Ä£Ê½1
 		P0 = 0x55;
 	}
 }
-void light2()//mode-II	//Ä£Ê½2
+void light2()//mode-II	//æ¨¡å¼2
 {
 	static unsigned int COUNT = 0;
 	static unsigned int trigger = 0;
@@ -67,7 +67,7 @@ void light2()//mode-II	//Ä£Ê½2
 		P0 = light2_Tab[trigger];
 	}
 }
-void light3()//mode-III	//Ä£Ê½3
+void light3()//mode-III	//æ¨¡å¼3
 {
 	static unsigned int COUNT = 0;
 	static unsigned int trigger = 0;
@@ -87,7 +87,7 @@ void light3()//mode-III	//Ä£Ê½3
 		P0 = light3_Tab[trigger];
 	}
 }
-void light4()//mode-IV	//Ä£Ê½4
+void light4()//mode-IV	//æ¨¡å¼4
 {
 	static unsigned int COUNT = 0;
 	static unsigned int trigger = 0;

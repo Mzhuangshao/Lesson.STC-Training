@@ -1,16 +1,16 @@
 #ifndef __Timer_H_
 #define __Timer_H_
 
-#include "STC15F.H"		//°üº¬µ¥Æ¬»úÍ·ÎÄ¼þ
+#include "STC15F.H"		//åŒ…å«å•ç‰‡æœºå¤´æ–‡ä»¶
 
 
-void Timer0Init(void);		//1ºÁÃë@11.0592MHz  ÔÚ¸÷×ÔµÄÍ·ÎÄ¼þÖÐÉùÃ÷£¬¿ÉÔÚÆäËûµØ·½µ÷ÓÃ
+void Timer0Init(void);		//1æ¯«ç§’@11.0592MHz  åœ¨å„è‡ªçš„å¤´æ–‡ä»¶ä¸­å£°æ˜Žï¼Œå¯åœ¨å…¶ä»–åœ°æ–¹è°ƒç”¨
 
-void Timer1Init(void);		//10ºÁÃë@11.0592MHz ÔÚ¸÷×ÔµÄÍ·ÎÄ¼þÖÐÉùÃ÷£¬¿ÉÔÚÆäËûµØ·½µ÷ÓÃ
+void Timer1Init(void);		//10æ¯«ç§’@11.0592MHz åœ¨å„è‡ªçš„å¤´æ–‡ä»¶ä¸­å£°æ˜Žï¼Œå¯åœ¨å…¶ä»–åœ°æ–¹è°ƒç”¨
 
-//Çë×ÔÐÐÄÔ²¹externµÄ×÷ÓÃ 
-//ÌØÃ´ÖØÒª£ºÉùÃ÷±äÁ¿µÄÊ±ºò£¬²»ÄÜ³õÊ¼»¯±äÁ¿
-extern	volatile	bit		Flag_1ms,Flag_10ms;//¶¨Òå2¸öÈ«¾Ö±äÁ¿£¬Ã¿¸ôÏàÓ¦µÄ¶¨Ê±µ½´ïÊ±£¬ÉèÎª1£¡±íÊ¾Ê±¼äµ½ÁË
+//è¯·è‡ªè¡Œè„‘è¡¥externçš„ä½œç”¨ 
+//ç‰¹ä¹ˆé‡è¦ï¼šå£°æ˜Žå˜é‡çš„æ—¶å€™ï¼Œä¸èƒ½åˆå§‹åŒ–å˜é‡
+extern	volatile	bit		Flag_1ms,Flag_10ms;//å®šä¹‰2ä¸ªå…¨å±€å˜é‡ï¼Œæ¯éš”ç›¸åº”çš„å®šæ—¶åˆ°è¾¾æ—¶ï¼Œè®¾ä¸º1ï¼è¡¨ç¤ºæ—¶é—´åˆ°äº†
 
-#endif  	//½áÊø
+#endif  	//ç»“æŸ
 

@@ -1,13 +1,13 @@
 #ifndef __Buzzer_H_
 #define __Buzzer_H_
 
-#include "STC15F.H"		//°üº¬µ¥Æ¬»úÍ·ÎÄ¼ş
+#include "STC15F.H"		//åŒ…å«å•ç‰‡æœºå¤´æ–‡ä»¶
 #include "Timer.H"	
-#include "Uart.H"		//°üº¬Í·ÎÄ¼ş ×Ô¼º´´½¨µÄ£¡£¡£¡£¡
+#include "Uart.H"		//åŒ…å«å¤´æ–‡ä»¶ è‡ªå·±åˆ›å»ºçš„ï¼ï¼ï¼ï¼
 
 void	Beep_Init(void);
-void	Buzzer_Handle(void);//º¯ÊıÉùÃ÷£¬×¢Òâ1msµ÷ÓÃÒ»´Î
+void	Buzzer_Handle(void);//å‡½æ•°å£°æ˜ï¼Œæ³¨æ„1msè°ƒç”¨ä¸€æ¬¡
 
 
-#endif  	//½áÊø
+#endif  	//ç»“æŸ
 

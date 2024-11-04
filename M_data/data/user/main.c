@@ -10,8 +10,8 @@ sbit BitMap8 = P3^5;  //P35
 sbit S1 = P5^4;
 sbit S2 = P5^5;
 unsigned char code tab[]={0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f,0xff};
-static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//¿ÕĞÄ
-static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//ÊµĞÄ
+static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//ç©ºå¿ƒ
+static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//å®å¿ƒ
 volatile unsigned int BitMapTab[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
 bit M1 = 0;
 unsigned char KEY1_COUNT = 0;
@@ -87,22 +87,22 @@ void BitMap_Display()
 void BitMap()
 {
 	unsigned char i ;
-	if(M1)										//´¥·¢Æ÷¼ì²â
+	if(M1)										//è§¦å‘å™¨æ£€æµ‹
 	{
-		for(i=0;i<8;i++)									//¿ÕĞÄ
+		for(i=0;i<8;i++)									//ç©ºå¿ƒ
 		{
 		BitMapTab[i] = ~Heart0[i] ;
 		}
 	}
 	else
 	{
-		for(i=0;i<8;i++)									//ÊµĞÄ
+		for(i=0;i<8;i++)									//å®å¿ƒ
 		{
 		BitMapTab[i] = ~Heart1[i] ;
 		}
 	}
 }
-void BitMap_Init()  //ÍÆÍìÊä³ö
+void BitMap_Init()  //æ¨æŒ½è¾“å‡º
 {
 	P2M1 &= 0x00;
 	P2M0 |= 0xff;

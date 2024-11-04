@@ -37,7 +37,7 @@ void main(void)
  }
 }
 
-void BitMap_Init()  //ÍÆÍìÊä³ö
+void BitMap_Init()  //æ¨æŒ½è¾“å‡º
 {
 	P2M1 = 0x00;
 	P2M0 = 0xff;

@@ -1,15 +1,15 @@
 #ifndef __DotLed_H_
 #define __DotLed_H_
 
-#include "STC15F.H"		//包含单片机头文件
+#include "STC15F.H"		//鍖呭惈鍗曠墖鏈哄ご鏂囦欢
 #include "Uart.H"
 
-extern	volatile	unsigned char Dot_Tab[8];//定义点阵显示数组，或者称之为缓冲，并初始化为显示心形
+extern	volatile	unsigned char Dot_Tab[8];//瀹氫箟鐐归樀鏄剧ず鏁扮粍锛屾垨鑰呯О涔嬩负缂撳啿锛屽苟鍒濆鍖栦负鏄剧ず蹇冨舰
 
 void	DotLed_Init(void);
 
 void	DotLed_Display(void);
 
 void  DotLed_Renew(void);
-#endif  	//结束
+#endif  	//缁撴潫
 

@@ -5,12 +5,12 @@
 #include "LED.h"
 #include "KEY.h"
 
-void main(void)				//Ö÷º¯Êı
+void main(void)				//ä¸»å‡½æ•°
 {	
-	//ÍÆÍìÉèÖÃ
+	//æ¨æŒ½è®¾ç½®
 	BitMap_Init();
 	Bleep_Init();
-	//¶¨Ê±Æ÷ÉèÖÃ
+	//å®šæ—¶å™¨è®¾ç½®
 	Timer0Init();
   Timer1Init();
 	while(1)

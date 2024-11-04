@@ -113,7 +113,7 @@ void lightLED(void)
 	 Delayx100ms(2);
 	}
 }
-/*void light4(void)   //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãð
+/*void light4(void)   //P00 P07 to 0.1s ä½Žåˆ°é«˜ä¾æ¬¡ç‚¹äº®,é«˜åˆ°ä½Žç†„ç­
 {
 	 unsigned int i;
 	for(i=9;i>0;i--)

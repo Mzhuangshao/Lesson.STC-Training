@@ -1,6 +1,6 @@
-#include "Bleep.h"			//蜂鸣器头文件
+#include "Bleep.h"			//铚傞福鍣ㄥご鏂囦欢
 
-void Bleep_Init()				//蜂鸣器初始化
+void Bleep_Init()				//铚傞福鍣ㄥ垵濮嬪寲
 {
 	P3M1 &= 0x7f;
 	P3M0 |= 0x80;
@@ -14,10 +14,10 @@ void Bleep_Init()				//蜂鸣器初始化
 	CR = 1;
 }
 
-void	Bleep(void)  			//蜂鸣器总控
+void	Bleep(void)  			//铚傞福鍣ㄦ�绘帶
 {
 	static	unsigned int COUNT = 0;
-	if(trigger_KEY_control)		//按键触发
+	if(trigger_KEY_control)		//鎸夐敭瑙﹀彂
 	{
 		BleepON();							//trun on
 		COUNT ++;
@@ -36,11 +36,11 @@ void	Bleep(void)  			//蜂鸣器总控
 
 }
 
-void BleepON()	//蜂鸣器开
+void BleepON()	//铚傞福鍣ㄥ紑
 {
 	CR = 1;
 }
-void BleepOFF()//蜂鸣器关
+void BleepOFF()//铚傞福鍣ㄥ叧
 {
 	CR = 0;
 }

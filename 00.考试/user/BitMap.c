@@ -1,14 +1,14 @@
-#include "BitMap.h"			//µãÕóÍ·ÎÄ¼ş
+#include "BitMap.h"			//ç‚¹é˜µå¤´æ–‡ä»¶
 
-static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//¿ÕĞÄ
-static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//ÊµĞÄ
+static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//ç©ºå¿ƒ
+static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//å®å¿ƒ
 static unsigned char code BLOCK0[] = {0xff,0x81,0x81,0x81,0x81,0x81,0x81,0xff};
 static unsigned char code BLOCK1[] = {0xff,0x81,0xbd,0xa5,0xa5,0xbd,0x81,0xff};
 static unsigned char code BLOCK2[] = {0xff,0xff,0xc3,0xc3,0xc3,0xc3,0xff,0xff};
 volatile unsigned int BitMapTab[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
 
 
-void BitMap_Display()		//µãÕóÏÔÊ¾Í¼°¸Ô¤¼ÓÔØ
+void BitMap_Display()		//ç‚¹é˜µæ˜¾ç¤ºå›¾æ¡ˆé¢„åŠ è½½
 {
 	static unsigned char accept_count = 0;
 	BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
@@ -31,37 +31,37 @@ void BitMap_Display()		//µãÕóÏÔÊ¾Í¼°¸Ô¤¼ÓÔØ
 		default:break;
 	}
 }
-void main_BitMap()		 //µãÕóÏÔÊ¾×Ü¿Ø
+void main_BitMap()		 //ç‚¹é˜µæ˜¾ç¤ºæ€»æ§
 {
 	unsigned char i ;
 	static char trigger_BM = 0;
-	if(trigger_KEY2)		//KEY2 trigger Check/°´¼ü2´¥·¢¼ì²â
+	if(trigger_KEY2)		//KEY2 trigger Check/æŒ‰é”®2è§¦å‘æ£€æµ‹
 	{
 		trigger_KEY2 = 0;
 		trigger_BM++;
 	}
 	switch(trigger_BM)
 	{
-		//ÇĞ»»Îª°®ĞÄ
+		//åˆ‡æ¢ä¸ºçˆ±å¿ƒ
 		case 1: 
 		for(i=0;i<8;i++)
 		{
 			BitMapTab[i] = ~Heart1[i];
 		}
 		break;
-		//ÇĞ»»Îª·½¿é
+		//åˆ‡æ¢ä¸ºæ–¹å—
 		case 2:	
 		for(i=0;i<8;i++)
 		{
 			BitMapTab[i] = ~BLOCK2[i];
 		}
 		break;
-		//ÖØÖÃÎª°®ĞÄ
+		//é‡ç½®ä¸ºçˆ±å¿ƒ
 		case 3:trigger_BM = 1;break;
 		default:break;
 	}
 }
-void BitMap_Init()  //µãÕó³õÊ¼»¯
+void BitMap_Init()  //ç‚¹é˜µåˆå§‹åŒ–
 {
 	P2M1 &= 0x00;
 	P2M0 |= 0xff;

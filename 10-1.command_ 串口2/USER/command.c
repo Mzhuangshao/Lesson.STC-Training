@@ -16,11 +16,11 @@ void poem()
 		break;
 		
 		case '3':
-		SendMsg(" 床前明月光疑是地上霜举头望明月低头思故乡！\r\n \n");Rec_Val = 0;
+		SendMsg(" 搴婂墠鏄庢湀鍏夌枒鏄湴涓婇湝涓惧ご鏈涙槑鏈堜綆澶存�濇晠涔★紒\r\n \n");Rec_Val = 0;
 		break;
 		
 		case '4':
-		SendMsg(" 你好中国！\r\n \n");Rec_Val = 0;
+		SendMsg(" 浣犲ソ涓浗锛乗r\n \n");Rec_Val = 0;
 		break;
 		
 		case '5':

@@ -1,7 +1,7 @@
 #include "BitMap.h"
 
-static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//¿ÕĞÄ
-static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//ÊµĞÄ
+static unsigned char code Heart0[] = {0x00,0x36,0x49,0x41,0x22,0x14,0x08,0x00};//ç©ºå¿ƒ
+static unsigned char code Heart1[] = {0x00,0x36,0x7f,0x7f,0x3e,0x1c,0x08,0x00};//å®å¿ƒ
 
 volatile unsigned int BitMapTab[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff};
 
@@ -29,7 +29,7 @@ void BitMap_Display()
 	}
 }
 
-void BitMap_Init()  //ÍÆÍìÊä³ö
+void BitMap_Init()  //æ¨æŒ½è¾“å‡º
 {
 	P2M1 &= 0x00;
 	P2M0 |= 0xff;
@@ -73,16 +73,16 @@ if(trigger_BM >= 1000)
 	trigger_BM = 0;
 	trigger_heart = !trigger_heart;
 }
-	if(trigger_heart)										//´¥·¢Æ÷¼ì²â
+	if(trigger_heart)										//è§¦å‘å™¨æ£€æµ‹
 	{
-		for(i=0;i<8;i++)									//¿ÕĞÄ
+		for(i=0;i<8;i++)									//ç©ºå¿ƒ
 		{
 		BitMapTab[i] = ~Heart0[i] ;
 		}
 	}
 	else
 	{
-		for(i=0;i<8;i++)									//ÊµĞÄ
+		for(i=0;i<8;i++)									//å®å¿ƒ
 		{
 		BitMapTab[i] = ~Heart1[i] ;
 		}

@@ -5,7 +5,7 @@
 #include "LED.h"
 #include "button.h"
 
-void main(void)				//Ö÷º¯Êý
+void main(void)				//ä¸»å‡½æ•°
 {	
 
 	BitMap_Init();

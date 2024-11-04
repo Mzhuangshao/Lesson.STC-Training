@@ -36,7 +36,7 @@ void main(void)
  while(1)
  {}
 }
-void BitMap_Init()  //推挽输出
+void BitMap_Init()  //鎺ㄦ尳杈撳嚭
 {
 	P2M1 &= 0x00;
 	P2M0 |= 0xff;
@@ -86,7 +86,7 @@ static unsigned int BleepTimer = 0;
 	  P37 = 0;
 	 }
 }
-void Timer1Isr() interrupt 3  //中断服务 P2控制
+void Timer1Isr() interrupt 3  //涓柇鏈嶅姟 P2鎺у埗
 	{
 	static unsigned int T1Count = 0;
 	static unsigned char Count = 0;
@@ -241,7 +241,7 @@ void Timer1Isr() interrupt 3  //中断服务 P2控制
 	Count = 0;
 	}
 }
-void Timer2Isr() interrupt 12 //中断服务 P45控制
+void Timer2Isr() interrupt 12 //涓柇鏈嶅姟 P45鎺у埗
 {
 	static unsigned int T2Count = 0;
 	T2Count ++;

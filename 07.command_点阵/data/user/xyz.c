@@ -16,7 +16,7 @@ void BitMap_control();
 void Timer0Isr();
 
 
-void main(void)  //main function//Ö÷º¯Êı
+void main(void)  //main function//ä¸»å‡½æ•°
 {
   BitMap_Init();
 	Timer0Init();
@@ -27,7 +27,7 @@ void main(void)  //main function//Ö÷º¯Êı
 	}
 }
 
-void BitMap_Init()  //ÍÆÍìÊä³ö
+void BitMap_Init()  //æ¨æŒ½è¾“å‡º
 {
 	P2M1 &= 0x00;
 	P2M0 |= 0xff;
@@ -59,7 +59,7 @@ void BitMap_Init()  //ÍÆÍìÊä³ö
 	P2 = 0x00;
 	BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 0;
 }
-void Timer0Isr() interrupt 1  //ÖĞ¶Ï·şÎñ
+void Timer0Isr() interrupt 1  //ä¸­æ–­æœåŠ¡
 {
 	static unsigned int Time1sCnt = 0;
 	 Time1sCnt++;
@@ -76,7 +76,7 @@ void Timer0Isr() interrupt 1  //ÖĞ¶Ï·şÎñ
 		}
 	}
 }
-void BitMap_control()  //BitMap //µãÕóÍ¼Í¼°¸¿ØÖÆ
+void BitMap_control()  //BitMap //ç‚¹é˜µå›¾å›¾æ¡ˆæ§åˆ¶
 {
 	if(BitMap_Count == 1)        //P32
 	{
@@ -111,7 +111,7 @@ void BitMap_control()  //BitMap //µãÕóÍ¼Í¼°¸¿ØÖÆ
 		BitMap1 = 0;BitMap2 = 0;BitMap3 = 0;BitMap4 = 0;BitMap5 = 0;BitMap6 = 0;BitMap7 = 0;BitMap8 = 1;
 	}
 }
-void Timer0Init(void)		//5ms@11.0592MHz//¶¨Ê±Æ÷5ms
+void Timer0Init(void)		//5ms@11.0592MHz//å®šæ—¶å™¨5ms
 {
 	AUXR &= 0x7F;
 	TMOD &= 0xF0;

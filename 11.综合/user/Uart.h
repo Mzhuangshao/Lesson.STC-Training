@@ -1,7 +1,7 @@
 #ifndef __Uart_H_
 #define __Uart_H_
 
-#include "data.H"		//°üº¬µ¥Æ¬»úÍ·ÎÄ¼ş
+#include "data.H"		//åŒ…å«å•ç‰‡æœºå¤´æ–‡ä»¶
 #include "command.h"
 
 void UartInit(void);
@@ -9,6 +9,6 @@ void SendData(unsigned char dat);
 void SendMsg(char *s);
 
 
-extern volatile  unsigned int Rec_Val;  //¶¨ÒåÈ«¾Ö±äÁ¿£¬ÓÃÓÚ´æ·Å´®¿Ú1½ÓÊÕµ½µÄÊı¾İ
-#endif  	//½áÊø
+extern volatile  unsigned int Rec_Val;  //å®šä¹‰å…¨å±€å˜é‡ï¼Œç”¨äºå­˜æ”¾ä¸²å£1æ¥æ”¶åˆ°çš„æ•°æ®
+#endif  	//ç»“æŸ
 

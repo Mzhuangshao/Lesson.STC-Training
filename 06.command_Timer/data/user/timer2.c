@@ -16,12 +16,12 @@ void main()
 	}
 }
 
-void T0Isr() interrupt 1  //ÖĞ¶Ï·şÎñ ·äÃùÆ÷¿ØÖÆ
+void T0Isr() interrupt 1  //ä¸­æ–­æœåŠ¡ èœ‚é¸£å™¨æ§åˆ¶
 {
 	P37 = !P37;
 }
 
-void T1Isr() interrupt 3  //ÖĞ¶Ï·şÎñ P0¿ØÖÆ
+void T1Isr() interrupt 3  //ä¸­æ–­æœåŠ¡ P0æ§åˆ¶
 {
 	static unsigned int T1Count = 0;
 	T1Count ++;
@@ -32,7 +32,7 @@ void T1Isr() interrupt 3  //ÖĞ¶Ï·şÎñ P0¿ØÖÆ
 	}
 }
 
-void T2Isr() interrupt 12 //ÖĞ¶Ï·şÎñ P45¿ØÖÆ
+void T2Isr() interrupt 12 //ä¸­æ–­æœåŠ¡ P45æ§åˆ¶
 {
 	static unsigned int T2Count = 0;
 	T2Count ++;

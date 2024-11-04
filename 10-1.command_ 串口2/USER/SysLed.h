@@ -1,11 +1,11 @@
 #ifndef __SysLed_H_
 #define __SysLed_H_
 
-#include "STC15F.H"		//°üº¬µ¥Æ¬»úÍ·ÎÄ¼ş
+#include "STC15F.H"		//åŒ…å«å•ç‰‡æœºå¤´æ–‡ä»¶
 
-void	SysLed_Display(void);//ÉùÃ÷º¯Êı£¬¿ÉÔÚÆäËûµØ·½µ÷ÓÃ
+void	SysLed_Display(void);//å£°æ˜å‡½æ•°ï¼Œå¯åœ¨å…¶ä»–åœ°æ–¹è°ƒç”¨
 
 
 
-#endif  	//½áÊø
+#endif  	//ç»“æŸ
 
