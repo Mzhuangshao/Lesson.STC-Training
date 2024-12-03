@@ -1,4 +1,4 @@
-#include "cool.H"
+#include "new.H"
 
 //声明子函数,不写的话程序不认下面的子函数
 void Delay100ms();    //clock 0.1s 0.1秒时钟

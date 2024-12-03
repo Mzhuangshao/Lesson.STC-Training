@@ -1,7 +1,6 @@
 #include "STCF5.H"
 
-
-void Delay500ms(void)		//@11.0592MHz
+void Delay500ms(void) //@11.0592MHz
 {
 	unsigned char i, j, k;
 
@@ -12,20 +11,19 @@ void Delay500ms(void)		//@11.0592MHz
 	{
 		do
 		{
-			while (--k);
+			while (--k)
+				;
 		} while (--j);
 	} while (--i);
 }
 
-
- void main(void)
+void main(void)
+{
+	while (1)
 	{
-		while(1)
-		{
-			P45 = 0;
-			Delay500ms();
-			P45 = 1;
-			Delay500ms();
-		}
+		P45 = 0;
+		Delay500ms();
+		P45 = 1;
+		Delay500ms();
 	}
-	
+}

@@ -1,25 +1,25 @@
-C51 COMPILER V9.52.0.0   LIGHT2                                                            09/09/2021 08:52:48 PAGE 1   
+C51 COMPILER V9.60.0.0   LIGHT2                                                            11/30/2024 13:58:51 PAGE 1   
 
 
-C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LIGHT2
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LIGHT2
 OBJECT MODULE PLACED IN ..\obj\light2.obj
-COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\light2.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(.\ligh
-                    -t2.lst) TABS(2) OBJECT(..\obj\light2.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\user\light2.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJECTEX
+                    -TEND PRINT(.\light2.lst) TABS(2) OBJECT(..\obj\light2.obj)
 
 line level    source
 
-   1          #include "cool.H"
+   1          #include "new.H"
    2          
-   3          //ÉùÃ÷×Óº¯Êý,²»Ð´µÄ»°³ÌÐò²»ÈÏÏÂÃæµÄ×Óº¯Êý
-   4          void Delay100ms();    //clock 0.1s 0.1ÃëÊ±ÖÓ
-   5          //void Delayx100ms(2);    //clock 0.2s 0.2ÃëÊ±ÖÓ
-   6          //void Delayx100ms(5);    //clock 0.5s 0.5ÃëÊ±ÖÓ
+   3          //å£°æ˜Žå­å‡½æ•°,ä¸å†™çš„è¯ç¨‹åºä¸è®¤ä¸‹é¢çš„å­å‡½æ•°
+   4          void Delay100ms();    //clock 0.1s 0.1ç§’æ—¶é’Ÿ
+   5          //void Delayx100ms(2);    //clock 0.2s 0.2ç§’æ—¶é’Ÿ
+   6          //void Delayx100ms(5);    //clock 0.5s 0.5ç§’æ—¶é’Ÿ
    7          void Delayx100ms(unsigned char x100ms);
-   8          void light1();        //all lights 0.5s È«²¿ÉÁÈý´Î
-   9          void light2();        //P00 to P07 0.2s ´ÓµÍµ½¸ß
-  10          void light3();        //P07 to P00 0.2s ´Ó¸ßµ½µÍ
-  11          void light4();        //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãð
-  12          void light5();        //ÖÐ¼äÀ©É¢
+   8          void light1();        //all lights 0.5s å…¨éƒ¨é—ªä¸‰æ¬¡
+   9          void light2();        //P00 to P07 0.2s ä»Žä½Žåˆ°é«˜
+  10          void light3();        //P07 to P00 0.2s ä»Žé«˜åˆ°ä½Ž
+  11          void light4();        //P00 P07 to 0.1s ä½Žåˆ°é«˜ä¾æ¬¡ç‚¹äº®,é«˜åˆ°ä½Žç†„ç­
+  12          void light5();        //ä¸­é—´æ‰©æ•£
   13          unsigned char code light1_Tab[] = {0xff,0x00,0xff,0x00,0xff,0x00,0xff};
   14          unsigned char code light2_Tab[] = {0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00,0xff};
   15          unsigned char code light3_Tab[] = {0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01,0x00,0xff};
@@ -28,7 +28,7 @@ line level    source
   17          unsigned char code light5_Tab[] = {0x7e,0x3c,0x18,0x00,0x18,0x3c,0x7e,0xff};
   18          unsigned char code light_P45[] = {0,1};
   19          //
-  20          //Ö÷º¯Êý
+  20          //ä¸»å‡½æ•°
   21          //
   22          void main(void)
   23          {
@@ -42,7 +42,7 @@ line level    source
   31   2          light1();
   32   2          light5();
   33   2          light1();
-  34   2          P45 = 0;         //ÏµÍ³ÌáÊ¾µÆÌáÐÑÄãÑ­»·Ò»´ÎÁË,¿ÉÒÔ²»Ð´
+  34   2          P45 = 0;         //ç³»ç»Ÿæç¤ºç¯æé†’ä½ å¾ªçŽ¯ä¸€æ¬¡äº†,å¯ä»¥ä¸å†™
   35   2          Delayx100ms(6);
   36   2          P45 = 1;
   37   2          Delayx100ms(3);
@@ -50,8 +50,8 @@ line level    source
   39   1      }
   40          //
   41          //
-  42          //¶¨Òå×Óº¯Êý
-  43          void light1(void)   //add function-all lights flash 0.5s È«²¿ÉÁÈý´Î
+  42          //å®šä¹‰å­å‡½æ•°
+  43          void light1(void)   //add function-all lights flash 0.5s å…¨éƒ¨é—ªä¸‰æ¬¡
   44          {
   45   1        unsigned int i;
   46   1        i = 7;
@@ -62,9 +62,9 @@ line level    source
   51   2         i--;
   52   2        }
   53   1      }
-C51 COMPILER V9.52.0.0   LIGHT2                                                            09/09/2021 08:52:48 PAGE 2   
+C51 COMPILER V9.60.0.0   LIGHT2                                                            11/30/2024 13:58:51 PAGE 2   
 
-  54          void light2(void)   //add function-P00 to P07 0.2s ´ÓµÍµ½¸ß
+  54          void light2(void)   //add function-P00 to P07 0.2s ä»Žä½Žåˆ°é«˜
   55          {
   56   1        unsigned int i;
   57   1        for(i=9;i>0;i--)
@@ -73,7 +73,7 @@ line level    source
   60   2          Delayx100ms(2);
   61   2        }
   62   1      }
-  63          void light3(void)   //P07 to P00 0.2s ´Ó¸ßµ½µÍ
+  63          void light3(void)   //P07 to P00 0.2s ä»Žé«˜åˆ°ä½Ž
   64          {
   65   1       unsigned int i;
   66   1        for(i=0;i<8;i++)
@@ -82,7 +82,7 @@ line level    source
   69   2          Delayx100ms(2);
   70   2        }
   71   1      }
-  72          void light4(void)   //P00 P07 to 0.1s µÍµ½¸ßÒÀ´ÎµãÁÁ,¸ßµ½µÍÏ¨Ãð
+  72          void light4(void)   //P00 P07 to 0.1s ä½Žåˆ°é«˜ä¾æ¬¡ç‚¹äº®,é«˜åˆ°ä½Žç†„ç­
   73          {
   74   1         unsigned int i;
   75   1        for(i=16;i>0;i--)
@@ -92,7 +92,7 @@ line level    source
   79   2        }
   80   1      }
   81          
-  82          void light5(void)   //ÖÐ¼äÀ©É¢
+  82          void light5(void)   //ä¸­é—´æ‰©æ•£
   83          {
   84   1        unsigned int i;
   85   1        for(i=0;i<8;i++)
@@ -126,7 +126,7 @@ line level    source
  113   2        }
  114   1      }
  115          
-C51 COMPILER V9.52.0.0   LIGHT2                                                            09/09/2021 08:52:48 PAGE 3   
+C51 COMPILER V9.60.0.0   LIGHT2                                                            11/30/2024 13:58:51 PAGE 3   
 
 
 

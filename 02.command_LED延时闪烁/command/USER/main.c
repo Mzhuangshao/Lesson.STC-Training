@@ -1,6 +1,6 @@
 #include "STCF5.H"
-		
-void Delay100ms(void)									//set colock-100ms @11.0592MHz
+
+void Delay100ms(void) // set colock-100ms @11.0592MHz
 {
 	unsigned char i, j, k;
 
@@ -11,29 +11,29 @@ void Delay100ms(void)									//set colock-100ms @11.0592MHz
 	{
 		do
 		{
-			while (--k);
+			while (--k)
+				;
 		} while (--j);
 	} while (--i);
 }
 
-
- void main(void)                     // LED
+void main(void) // LED
+{
+	while (1)
 	{
-		while(1)
+		P45 = 0;
+		Delay100ms();
+		P45 = 1;
+		Delay100ms();
+	}
+	do
+	{
+		while (1)
 		{
-			P45 = 0;
+			P0 = 0xfe;
 			Delay100ms();
-			P45 = 1;
+			P0 = 0xdf;
 			Delay100ms();
 		}
-			do
-			{
-				while(1)
-				{
-					P0 = 0xfe;
-					Delay100ms();
-					P0 = 0xdf;
-					Delay100ms();
-				}
-			}
 	}
+}
