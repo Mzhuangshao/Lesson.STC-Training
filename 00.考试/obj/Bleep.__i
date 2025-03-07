@@ -1,0 +1,1 @@
+"..\user\Bleep.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\Bleep.lst) TABS (2) OBJECT(..\obj\Bleep.obj)

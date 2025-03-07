@@ -1,0 +1,608 @@
+[2024-12-20 15:30:55] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 15:30:44
+*FILESIZE* : 165 (0x0000A5)
+*CODESIZE* : 37 (0x000025)
+*CHECKSUM* : 0x00000FDE
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 15:31:05] : End
+--------------------------------------------------
+[2024-12-20 15:32:16] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 15:32:15
+*FILESIZE* : 187 (0x0000BB)
+*CODESIZE* : 48 (0x000030)
+*CHECKSUM* : 0x00001393
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 15:32:24] : End
+--------------------------------------------------
+[2024-12-20 15:32:59] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 15:32:58
+*FILESIZE* : 187 (0x0000BB)
+*CODESIZE* : 48 (0x000030)
+*CHECKSUM* : 0x00001491
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 15:33:06] : End
+--------------------------------------------------
+[2024-12-20 15:47:44] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 15:47:43
+*FILESIZE* : 220 (0x0000DC)
+*CODESIZE* : 58 (0x00003A)
+*CHECKSUM* : 0x00001953
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 15:47:51] : End
+--------------------------------------------------
+[2024-12-20 16:05:57] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:05:57
+*FILESIZE* : 767 (0x0002FF)
+*CODESIZE* : 247 (0x0000F7)
+*CHECKSUM* : 0x00006B0C
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:06:06] : End
+--------------------------------------------------
+[2024-12-20 16:07:01] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:07:00
+*FILESIZE* : 767 (0x0002FF)
+*CODESIZE* : 247 (0x0000F7)
+*CHECKSUM* : 0x000068F3
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:07:06] : End
+--------------------------------------------------
+[2024-12-20 16:07:22] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:07:21
+*FILESIZE* : 767 (0x0002FF)
+*CODESIZE* : 247 (0x0000F7)
+*CHECKSUM* : 0x000068F7
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:07:30] : End
+--------------------------------------------------
+[2024-12-20 16:09:06] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:09:05
+*FILESIZE* : 894 (0x00037E)
+*CODESIZE* : 291 (0x000123)
+*CHECKSUM* : 0x00006E73
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:09:11] : End
+--------------------------------------------------
+[2024-12-20 16:12:03] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:12:02
+*FILESIZE* : 894 (0x00037E)
+*CODESIZE* : 291 (0x000123)
+*CHECKSUM* : 0x00006E73
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:12:11] : End
+--------------------------------------------------
+[2024-12-20 16:12:20] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:12:19
+*FILESIZE* : 894 (0x00037E)
+*CODESIZE* : 291 (0x000123)
+*CHECKSUM* : 0x00007003
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:12:29] : End
+--------------------------------------------------
+[2024-12-20 16:12:39] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:12:39
+*FILESIZE* : 894 (0x00037E)
+*CODESIZE* : 291 (0x000123)
+*CHECKSUM* : 0x00006FB3
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:12:45] : End
+--------------------------------------------------
+[2024-12-20 16:15:36] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:15:36
+*FILESIZE* : 946 (0x0003B2)
+*CODESIZE* : 304 (0x000130)
+*CHECKSUM* : 0x00007382
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:15:46] : End
+--------------------------------------------------
+[2024-12-20 16:19:43] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\2. 单片机学习板测试程序\51单片机学习板测试程序_1\Objects\led.hex
+*FILETIME* : 2022年12月13日, 16:01:08
+*FILESIZE* : 191 (0x0000BF)
+*CODESIZE* : 2095 (0x00082F)
+*CHECKSUM* : 0x00080B02
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:19:52] : End
+--------------------------------------------------
+[2024-12-20 16:20:02] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\2. 单片机学习板测试程序\51单片机学习板测试程序_2\Objects\new-test.hex
+*FILETIME* : 2022年01月03日, 17:28:07
+*FILESIZE* : 2709 (0x000A95)
+*CODESIZE* : 2964 (0x000B94)
+*CHECKSUM* : 0x00098217
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:20:10] : End
+--------------------------------------------------
+[2024-12-20 16:38:22] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:38:12
+*FILESIZE* : 931 (0x0003A3)
+*CODESIZE* : 303 (0x00012F)
+*CHECKSUM* : 0x000072C0
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 16:38:30] : End
+--------------------------------------------------
+[2024-12-20 16:38:43] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:38:12
+*FILESIZE* : 931 (0x0003A3)
+*CODESIZE* : 303 (0x00012F)
+*CHECKSUM* : 0x000072C0
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:38:51] : End
+--------------------------------------------------
+[2024-12-20 16:39:50] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 16:39:50
+*FILESIZE* : 925 (0x00039D)
+*CODESIZE* : 300 (0x00012C)
+*CHECKSUM* : 0x000070FD
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:39:57] : End
+--------------------------------------------------
+[2024-12-20 16:42:53] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\2. 单片机学习板测试程序\51单片机学习板测试程序_2\Objects\new-test.hex
+*FILETIME* : 2022年01月03日, 17:28:07
+*FILESIZE* : 2709 (0x000A95)
+*CODESIZE* : 2964 (0x000B94)
+*CHECKSUM* : 0x00098217
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 16:43:03] : End
+--------------------------------------------------
+[2024-12-20 17:30:12] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:30:00
+*FILESIZE* : 381 (0x00017D)
+*CODESIZE* : 119 (0x000077)
+*CHECKSUM* : 0x000034E7
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:30:19] : End
+--------------------------------------------------
+[2024-12-20 17:36:02] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:36:01
+*FILESIZE* : 410 (0x00019A)
+*CODESIZE* : 127 (0x00007F)
+*CHECKSUM* : 0x000038A8
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:36:10] : End
+--------------------------------------------------
+[2024-12-20 17:36:11] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:36:03
+*FILESIZE* : 410 (0x00019A)
+*CODESIZE* : 127 (0x00007F)
+*CHECKSUM* : 0x000038A8
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:37:26] : End
+--------------------------------------------------
+[2024-12-20 17:37:27] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:37:19
+*FILESIZE* : 365 (0x00016D)
+*CODESIZE* : 111 (0x00006F)
+*CHECKSUM* : 0x00002DDC
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:38:17] : End
+--------------------------------------------------
+[2024-12-20 17:38:19] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:38:09
+*FILESIZE* : 365 (0x00016D)
+*CODESIZE* : 111 (0x00006F)
+*CHECKSUM* : 0x00002DCD
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:39:06] : End
+--------------------------------------------------
+[2024-12-20 17:39:07] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:38:52
+*FILESIZE* : 365 (0x00016D)
+*CODESIZE* : 111 (0x00006F)
+*CHECKSUM* : 0x00002DC0
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:41:27] : End
+--------------------------------------------------
+[2024-12-20 17:41:28] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:41:18
+*FILESIZE* : 365 (0x00016D)
+*CODESIZE* : 111 (0x00006F)
+*CHECKSUM* : 0x00002DBF
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:42:23] : End
+--------------------------------------------------
+[2024-12-20 17:42:24] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:42:15
+*FILESIZE* : 381 (0x00017D)
+*CODESIZE* : 119 (0x000077)
+*CHECKSUM* : 0x00003100
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:42:57] : End
+--------------------------------------------------
+[2024-12-20 17:42:58] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:42:50
+*FILESIZE* : 381 (0x00017D)
+*CODESIZE* : 119 (0x000077)
+*CHECKSUM* : 0x00003121
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 17:56:41] : End
+--------------------------------------------------
+[2024-12-20 17:56:42] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:56:28
+*FILESIZE* : 508 (0x0001FC)
+*CODESIZE* : 163 (0x0000A3)
+*CHECKSUM* : 0x000046E6
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 17:56:45] : End
+--------------------------------------------------
+[2024-12-20 17:56:59] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:56:28
+*FILESIZE* : 508 (0x0001FC)
+*CODESIZE* : 163 (0x0000A3)
+*CHECKSUM* : 0x000046E6
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 17:57:06] : End
+--------------------------------------------------
+[2024-12-20 17:59:53] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:59:52
+*FILESIZE* : 381 (0x00017D)
+*CODESIZE* : 119 (0x000077)
+*CHECKSUM* : 0x00003130
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 17:59:57] : End
+--------------------------------------------------
+[2024-12-20 17:59:59] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 17:59:52
+*FILESIZE* : 381 (0x00017D)
+*CODESIZE* : 119 (0x000077)
+*CHECKSUM* : 0x00003130
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:00:05] : End
+--------------------------------------------------
+[2024-12-20 18:01:18] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:01:16
+*FILESIZE* : 422 (0x0001A6)
+*CODESIZE* : 133 (0x000085)
+*CHECKSUM* : 0x0000364D
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:01:24] : End
+--------------------------------------------------
+[2024-12-20 18:04:29] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:04:28
+*FILESIZE* : 422 (0x0001A6)
+*CODESIZE* : 133 (0x000085)
+*CHECKSUM* : 0x0000364C
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:04:39] : End
+--------------------------------------------------
+[2024-12-20 18:12:09] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:12:08
+*FILESIZE* : 467 (0x0001D3)
+*CODESIZE* : 149 (0x000095)
+*CHECKSUM* : 0x00004148
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 18:12:11] : End
+--------------------------------------------------
+[2024-12-20 18:12:14] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:12:08
+*FILESIZE* : 467 (0x0001D3)
+*CODESIZE* : 149 (0x000095)
+*CHECKSUM* : 0x00004148
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:12:21] : End
+--------------------------------------------------
+[2024-12-20 18:12:41] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:12:40
+*FILESIZE* : 467 (0x0001D3)
+*CODESIZE* : 149 (0x000095)
+*CHECKSUM* : 0x0000414A
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:12:49] : End
+--------------------------------------------------
+[2024-12-20 18:18:46] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:18:45
+*FILESIZE* : 599 (0x000257)
+*CODESIZE* : 189 (0x0000BD)
+*CHECKSUM* : 0x00004976
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:18:52] : End
+--------------------------------------------------
+[2024-12-20 18:20:11] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:20:10
+*FILESIZE* : 599 (0x000257)
+*CODESIZE* : 189 (0x0000BD)
+*CHECKSUM* : 0x00004A2C
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:20:18] : End
+--------------------------------------------------
+[2024-12-20 18:22:14] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:22:13
+*FILESIZE* : 640 (0x000280)
+*CODESIZE* : 203 (0x0000CB)
+*CHECKSUM* : 0x000054C0
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:22:21] : End
+--------------------------------------------------
+[2024-12-20 18:23:39] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:23:38
+*FILESIZE* : 640 (0x000280)
+*CODESIZE* : 203 (0x0000CB)
+*CHECKSUM* : 0x000053B8
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:23:45] : End
+--------------------------------------------------
+[2024-12-20 18:26:00] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-20 18:26:06] : End
+--------------------------------------------------
+[2024-12-20 18:31:55] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 18:32:22] : End
+--------------------------------------------------
+[2024-12-20 18:32:33] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-20 18:32:34] : End
+--------------------------------------------------
+[2024-12-20 18:32:37] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-21 13:30:05] : End
+--------------------------------------------------

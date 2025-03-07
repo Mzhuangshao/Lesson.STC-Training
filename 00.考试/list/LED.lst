@@ -1,14 +1,14 @@
-C51 COMPILER V9.52.0.0   LED                                                               12/27/2021 11:00:02 PAGE 1   
+C51 COMPILER V9.60.0.0   LED                                                               12/20/2024 18:18:20 PAGE 1   
 
 
-C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LED
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE LED
 OBJECT MODULE PLACED IN ..\obj\LED.obj
-COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\LED.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\L
-                    -ED.lst) TABS(2) OBJECT(..\obj\LED.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\user\LED.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJECTEXTEN
+                    -D PRINT(..\list\LED.lst) TABS(2) OBJECT(..\obj\LED.obj)
 
 line level    source
 
-   1          #include "LED.h"        //P0-LEDÕ∑Œƒº˛
+   1          #include "LED.h"        //P0-LEDÂ§¥Êñá‰ª∂
    2          
    3          unsigned char code light2_Tab[] = {0xff,0xfe,0xfc,0xf8,0xf0,0xe0,0xc0,0x80,0x00,0xff};
    4          unsigned char code light3_Tab[] = {0xff,0x7f,0x3f,0x1f,0x0f,0x07,0x03,0x01,0x00,0xff};
@@ -16,14 +16,14 @@ line level    source
              -xfe,0xff};
    6          unsigned char code light5_Tab[] = {0x7e,0x3c,0x18,0x00,0x18,0x3c,0x7e,0xff};
    7          
-   8          void main_LED()//P0 main-function//P0÷˜øÿ
+   8          void main_LED()//P0 main-function//P0‰∏ªÊéß
    9          {
   10   1        static unsigned char LED_num = 0;
-  11   1        if(trigger_KEY1)    //KEY1 trigger Check//∞¥º¸1¥•∑¢ºÏ≤‚
+  11   1        if(trigger_KEY1)    //KEY1 trigger Check//ÊåâÈîÆ1Ëß¶ÂèëÊ£ÄÊµã
   12   1        {
   13   2          trigger_KEY1 = 0;
   14   2          LED_num ++;
-  15   2          if(LED_num >= 5)  //reset count//÷ÿ÷√º∆ ˝∆˜
+  15   2          if(LED_num >= 5)  //reset count//ÈáçÁΩÆËÆ°Êï∞Âô®
   16   2          {
   17   3            LED_num = 1;
   18   3            P0 = 0xff;
@@ -39,7 +39,7 @@ line level    source
   28   2        }
   29   1      }
   30          
-  31          void light1()//mode-I   //ƒ£ Ω1
+  31          void light1()//mode-I   //Ê®°Âºè1
   32          {
   33   1        static unsigned int COUNT = 0;
   34   1        static bit trigger = 0;
@@ -58,11 +58,11 @@ line level    source
   47   2          P0 = 0x55;
   48   2        }
   49   1      }
-  50          void light2()//mode-II  //ƒ£ Ω2
+  50          void light2()//mode-II  //Ê®°Âºè2
   51          {
   52   1        static unsigned int COUNT = 0;
   53   1        static unsigned int trigger = 0;
-C51 COMPILER V9.52.0.0   LED                                                               12/27/2021 11:00:02 PAGE 2   
+C51 COMPILER V9.60.0.0   LED                                                               12/20/2024 18:18:20 PAGE 2   
 
   54   1        
   55   1          COUNT ++;
@@ -80,7 +80,7 @@ line level    source
   67   2          P0 = light2_Tab[trigger];
   68   2        }
   69   1      }
-  70          void light3()//mode-III //ƒ£ Ω3
+  70          void light3()//mode-III //Ê®°Âºè3
   71          {
   72   1        static unsigned int COUNT = 0;
   73   1        static unsigned int trigger = 0;
@@ -100,7 +100,7 @@ line level    source
   87   2          P0 = light3_Tab[trigger];
   88   2        }
   89   1      }
-  90          void light4()//mode-IV  //ƒ£ Ω4
+  90          void light4()//mode-IV  //Ê®°Âºè4
   91          {
   92   1        static unsigned int COUNT = 0;
   93   1        static unsigned int trigger = 0;
@@ -123,10 +123,10 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    282    ----
+   CODE SIZE        =    286    ----
    CONSTANT SIZE    =     44    ----
    XDATA SIZE       =   ----    ----
-C51 COMPILER V9.52.0.0   LED                                                               12/27/2021 11:00:02 PAGE 3   
+C51 COMPILER V9.60.0.0   LED                                                               12/20/2024 18:18:20 PAGE 3   
 
    PDATA SIZE       =   ----    ----
    DATA SIZE        =     15    ----

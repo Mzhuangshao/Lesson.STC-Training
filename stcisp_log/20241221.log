@@ -1,0 +1,67 @@
+[2024-12-21 13:34:05] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-21 13:58:58] : End
+--------------------------------------------------
+[2024-12-21 13:59:09] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-21 13:59:22] : End
+--------------------------------------------------
+[2024-12-21 13:59:25] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\Objects\new.hex
+*FILETIME* : 2024年12月20日, 18:26:00
+*FILESIZE* : 775 (0x000307)
+*CODESIZE* : 251 (0x0000FB)
+*CHECKSUM* : 0x000066EF
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-21 13:59:32] : End
+--------------------------------------------------
+[2024-12-21 15:01:25] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\2. 单片机学习板测试程序\51单片机学习板测试程序_2\Objects\new-test.hex
+*FILETIME* : 2022年01月03日, 17:28:07
+*FILESIZE* : 2709 (0x000A95)
+*CODESIZE* : 2964 (0x000B94)
+*CHECKSUM* : 0x00098217
+*ISPMODE* : 2
+*ISPRESULT* : 3
+--------------------
+[2024-12-21 15:01:36] : End
+--------------------------------------------------
+[2024-12-21 15:01:51] : Begin
+--------------------
+*MCUTYPE* : STC12C5A60S2
+*MCUID* : D17EC40717E6A2
+*FILENAME* : C:\Users\shadowstorm\Documents\01test\2. 单片机学习板测试程序\51单片机学习板测试程序_2\Objects\new-test.hex
+*FILETIME* : 2022年01月03日, 17:28:07
+*FILESIZE* : 2709 (0x000A95)
+*CODESIZE* : 2964 (0x000B94)
+*CHECKSUM* : 0x00098217
+*ISPMODE* : 2
+*ISPRESULT* : 0
+--------------------
+[2024-12-21 15:01:58] : End
+--------------------------------------------------

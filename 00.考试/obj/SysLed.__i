@@ -1,0 +1,1 @@
+"..\user\SysLed.c" OPTIMIZE (8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\SysLed.lst) TABS (2) OBJECT(..\obj\SysLed.obj)

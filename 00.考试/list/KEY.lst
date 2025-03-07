@@ -1,34 +1,34 @@
-C51 COMPILER V9.52.0.0   KEY                                                               12/27/2021 11:00:01 PAGE 1   
+C51 COMPILER V9.60.0.0   KEY                                                               12/20/2024 18:18:20 PAGE 1   
 
 
-C51 COMPILER V9.52.0.0, COMPILATION OF MODULE KEY
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEY
 OBJECT MODULE PLACED IN ..\obj\KEY.obj
-COMPILER INVOKED BY: C:\Keil_C51\C51\BIN\C51.EXE ..\user\KEY.c BROWSE INCDIR(..\user) DEBUG OBJECTEXTEND PRINT(..\list\K
-                    -EY.lst) TABS(2) OBJECT(..\obj\KEY.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\user\KEY.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\user) DEBUG OBJECTEXTEN
+                    -D PRINT(..\list\KEY.lst) TABS(2) OBJECT(..\obj\KEY.obj)
 
 line level    source
 
-   1          #include "KEY.h"        //°´¼üÍ·ÎÄ¼ş
+   1          #include "KEY.h"        //æŒ‰é”®å¤´æ–‡ä»¶
    2          
-   3          volatile bit trigger_KEY_control;   //°´¼ü¼ì²â×Ü±äÁ¿
-   4          volatile bit trigger_KEY1;          //KEY1±äÁ¿
-   5          volatile bit trigger_KEY2;          //KEY2±äÁ¿
+   3          volatile bit trigger_KEY_control;   //æŒ‰é”®æ£€æµ‹æ€»å˜é‡
+   4          volatile bit trigger_KEY1;          //KEY1å˜é‡
+   5          volatile bit trigger_KEY2;          //KEY2å˜é‡
    6          
    7          
-   8          void KEY1_CHECK()                   //KEY1¼ì²é
+   8          void KEY1_CHECK()                   //KEY1æ£€æŸ¥
    9          {
   10   1        static unsigned char KEY1_Cnt = 0;
   11   1        static unsigned char KEY1_Status = 0;
   12   1        
   13   1        switch(KEY1_Status)
   14   1        {
-  15   2          case 0:             //default-mode Check//³õÊ¼Ä£Ê½¼ì²é
-  16   2          if(KEY1 == 0)       //check KEY1 //¼ì²âµÍµçÆ½
+  15   2          case 0:             //default-mode Check//åˆå§‹æ¨¡å¼æ£€æŸ¥
+  16   2          if(KEY1 == 0)       //check KEY1 //æ£€æµ‹ä½ç”µå¹³
   17   2          {
   18   3            KEY1_Cnt = 0;
   19   3            KEY1_Status = 1;
   20   3          }
-  21   2          else                //°´×¡Ê±¼äÊÇ·ñ´óÓÚ10ms
+  21   2          else                //æŒ‰ä½æ—¶é—´æ˜¯å¦å¤§äº10ms
   22   2          {
   23   3            KEY1_Cnt ++;
   24   3            if(KEY1_Cnt >= 10)
@@ -37,17 +37,17 @@ line level    source
   27   4              trigger_KEY1 = 0;
   28   4            }
   29   3          }
-  30   2          break;              //function end//Óï¾ä½áÊø
+  30   2          break;              //function end//è¯­å¥ç»“æŸ
   31   2          
-  32   2          case 1:             //È¥¶¶
+  32   2          case 1:             //å»æŠ–
   33   2          if(KEY1 == 0)
   34   2          {
   35   3            KEY1_Cnt++;
   36   3            if(KEY1_Cnt >= 20)
   37   3            {
   38   4              KEY1_Cnt = 0;
-  39   4              trigger_KEY1 = 1;       //KEY1±äÁ¿¸Ä±ä
-  40   4              trigger_KEY_control = 1;//°´¼ü¼ì²â×Ü±äÁ¿¸Ä±ä
+  39   4              trigger_KEY1 = 1;       //KEY1å˜é‡æ”¹å˜
+  40   4              trigger_KEY_control = 1;//æŒ‰é”®æ£€æµ‹æ€»å˜é‡æ”¹å˜
   41   4              KEY1_Status = 2;
   42   4            }
   43   3          }
@@ -56,13 +56,13 @@ line level    source
   46   3            KEY1_Cnt = 0;
   47   3            KEY1_Status = 0;
   48   3          }
-  49   2          break;              //function end//Óï¾ä½áÊø
+  49   2          break;              //function end//è¯­å¥ç»“æŸ
   50   2          
-  51   2          case 2:             //¸´Î»KEY1
+  51   2          case 2:             //å¤ä½KEY1
   52   2          if(KEY1)
   53   2          {
   54   3            KEY1_Cnt = 0;
-C51 COMPILER V9.52.0.0   KEY                                                               12/27/2021 11:00:01 PAGE 2   
+C51 COMPILER V9.60.0.0   KEY                                                               12/20/2024 18:18:20 PAGE 2   
 
   55   3            KEY1_Status =0;
   56   3          }
@@ -70,20 +70,20 @@ line level    source
   58   2        }
   59   1      }
   60          
-  61          void KEY2_CHECK()                   //KEY2¼ì²é
+  61          void KEY2_CHECK()                   //KEY2æ£€æŸ¥
   62          {
   63   1        static unsigned char KEY2_Cnt = 0;
   64   1        static unsigned char KEY2_Status = 0;
   65   1        
   66   1        switch(KEY2_Status)
   67   1        {
-  68   2          case 0:             //default-mode Check//³õÊ¼Ä£Ê½¼ì²é
-  69   2          if(KEY2 == 0)       //check KEY1 //¼ì²âµÍµçÆ½
+  68   2          case 0:             //default-mode Check//åˆå§‹æ¨¡å¼æ£€æŸ¥
+  69   2          if(KEY2 == 0)       //check KEY1 //æ£€æµ‹ä½ç”µå¹³
   70   2          {
   71   3            KEY2_Cnt = 0;
   72   3            KEY2_Status = 1;
   73   3          }
-  74   2          else                //°´×¡Ê±¼äÊÇ·ñ´óÓÚ10ms
+  74   2          else                //æŒ‰ä½æ—¶é—´æ˜¯å¦å¤§äº10ms
   75   2          {
   76   3            KEY2_Cnt ++;
   77   3            if(KEY2_Cnt >= 10)
@@ -92,17 +92,17 @@ line level    source
   80   4              trigger_KEY2 = 0;
   81   4            }
   82   3          }
-  83   2          break;              //function end//Óï¾ä½áÊø
+  83   2          break;              //function end//è¯­å¥ç»“æŸ
   84   2          
-  85   2          case 1:             //È¥¶¶
+  85   2          case 1:             //å»æŠ–
   86   2          if(KEY2 == 0)
   87   2          {
   88   3            KEY2_Cnt++;
   89   3            if(KEY2_Cnt >= 20)
   90   3            {
   91   4              KEY2_Cnt = 0;
-  92   4              trigger_KEY2 = 1;       //KEY2±äÁ¿¸Ä±ä
-  93   4              trigger_KEY_control = 1;//°´¼ü¼ì²â×Ü±äÁ¿¸Ä±ä
+  92   4              trigger_KEY2 = 1;       //KEY2å˜é‡æ”¹å˜
+  93   4              trigger_KEY_control = 1;//æŒ‰é”®æ£€æµ‹æ€»å˜é‡æ”¹å˜
   94   4              
   95   4              KEY2_Status = 2;
   96   4            }
@@ -112,9 +112,9 @@ line level    source
  100   3            KEY2_Cnt = 0;
  101   3            KEY2_Status = 0;
  102   3          }
- 103   2          break;              //function end//Óï¾ä½áÊø
+ 103   2          break;              //function end//è¯­å¥ç»“æŸ
  104   2          
- 105   2          case 2:             //¸´Î»KEY1
+ 105   2          case 2:             //å¤ä½KEY1
  106   2          if(KEY2)
  107   2          {
  108   3            KEY2_Cnt = 0;
@@ -126,9 +126,9 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-C51 COMPILER V9.52.0.0   KEY                                                               12/27/2021 11:00:01 PAGE 3   
+C51 COMPILER V9.60.0.0   KEY                                                               12/20/2024 18:18:20 PAGE 3   
 
-   CODE SIZE        =    138    ----
+   CODE SIZE        =    154    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
