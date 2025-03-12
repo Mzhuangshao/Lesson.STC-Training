@@ -7,23 +7,22 @@ void Bleep_Init()
 	CCON = 0;
 	CL = 0;
 	CH = 0;
-	CMOD =0x00;
+	CMOD = 0x00;
 	PCA_PWM2 = 0x00;
 	CCAP2H = CCAP2L = 125;
 	CCAPM2 = 0x42;
 	CR = 1;
 }
 
-void	Bleep(void)
+void Bleep(void)
 {
-	static	unsigned int Time100ms_Cnt = 0;		//????,??100ms
-	
-	
-	if(trigger_KEY_control)
+	static unsigned int Time100ms_Cnt = 0; //????,??100ms
+
+	if (trigger_KEY_control)
 	{
-		BleepON();//P37 = !P37;
-		Time100ms_Cnt ++;
-		if(Time100ms_Cnt >= 20)
+		BleepON(); // P37 = !P37;
+		Time100ms_Cnt++;
+		if (Time100ms_Cnt >= 20)
 		{
 			Time100ms_Cnt = 0;
 			trigger_KEY_control = 0;
@@ -33,12 +32,9 @@ void	Bleep(void)
 	else
 	{
 		BleepOFF();
-		Time100ms_Cnt = 0;	
+		Time100ms_Cnt = 0;
 	}
-
 }
-
-
 
 void BleepON()
 {
